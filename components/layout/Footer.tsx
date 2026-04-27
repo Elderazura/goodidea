@@ -46,7 +46,9 @@ export default function Footer() {
   }, [])
 
   function openCalendly() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (typeof window !== 'undefined' && (window as any).Calendly) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ;(window as any).Calendly.initPopupWidget({ url: contactInfo.calendlyUrl })
     }
   }

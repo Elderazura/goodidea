@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { navLinks } from '@/data/site'
 import AnimatedLogo from '@/components/ui/AnimatedLogo'
 import MobileMenu from '@/components/layout/MobileMenu'
