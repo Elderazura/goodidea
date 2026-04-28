@@ -3,6 +3,7 @@ import { Hepta_Slab } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import CustomCursor from '@/components/ui/CustomCursor'
 import Script from 'next/script'
 import { siteConfig } from '@/data/site'
 
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="pt-16 md:pt-20">{children}</main>
         <Footer />
+        <CustomCursor />
 
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analyticsId}`}
