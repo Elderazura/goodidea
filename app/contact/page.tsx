@@ -16,9 +16,9 @@ const iconMap = {
 export default function ContactPage() {
   return (
     <div className="container-gi py-12 max-w-3xl">
-      <h1 className="font-gotham-bold text-dark text-heading-lg mb-4">Let's Talk</h1>
+      <h1 className="font-gotham-bold text-dark text-heading-lg mb-4">Let&apos;s Talk</h1>
       <p className="font-gotham text-body text-dark mb-12 max-w-lg">
-        Tell us about your brand challenge and we'll respond within 24 hours.
+        Tell us about your brand challenge and we&apos;ll respond within 24 hours.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mb-16">
