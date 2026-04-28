@@ -8,6 +8,7 @@ const config: Config = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/$1',
     '^swiper$': '<rootDir>/__mocks__/swiper.js',
     '^swiper/modules$': '<rootDir>/__mocks__/swiper-modules.js',
     '^swiper/css$': '<rootDir>/__mocks__/swiper-css.js',
