@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import AnimatedLogo from '@/components/ui/AnimatedLogo'
 import { InstagramIcon, LinkedInIcon, FacebookIcon } from '@/components/ui/SocialIcons'
 
 export default function Footer() {
@@ -157,7 +158,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/company/goodideadubai"
+                href="https://www.linkedin.com/company/goodidea-dubai/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center hover:opacity-60 transition-opacity duration-200"
@@ -187,27 +188,20 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── 3. Giant wordmark row ── */}
+      {/* ── 3. Giant logo watermark row ── */}
       <div
         className="overflow-hidden select-none"
-        style={{ borderTop: '1px solid var(--ink-20)' }}
+        style={{ borderTop: '1px solid var(--ink-20)', paddingLeft: '2%', paddingRight: '2%' }}
         aria-hidden
       >
-        <p
-          className="font-serif leading-none whitespace-nowrap"
+        <AnimatedLogo
           style={{
-            fontSize: 'clamp(8rem, 18vw, 22rem)',
-            fontWeight: 900,
-            fontStyle: 'italic',
-            letterSpacing: '-0.04em',
-            color: 'var(--ink)',
-            opacity: 0.08,
-            lineHeight: 0.9,
-            paddingLeft: '2%',
+            width: 'min(96vw, 1400px)',
+            height: 'auto',
+            opacity: 0.06,
+            display: 'block',
           }}
-        >
-          goodidea
-        </p>
+        />
       </div>
 
       {/* ── Bottom bar ── */}

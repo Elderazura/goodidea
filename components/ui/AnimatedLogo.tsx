@@ -1,17 +1,18 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 interface AnimatedLogoProps {
   className?: string
+  style?: React.CSSProperties
   inverted?: boolean
 }
 
 const MOUTH_NEUTRAL = 'M202.5,268.5C202.5,268.5,348.5,268.5,348.5,268.5'
 const MOUTH_SMILE = 'M184.6,210.6c30.2,68.7,149.3,86.4,189.9-0.9'
 
-export default function AnimatedLogo({ className = '', inverted = false }: AnimatedLogoProps) {
+export default function AnimatedLogo({ className = '', style, inverted = false }: AnimatedLogoProps) {
   const [isSmiling, setIsSmiling] = useState(false)
   const fill = inverted ? '#fff' : '#111f2a'
 
@@ -25,6 +26,7 @@ export default function AnimatedLogo({ className = '', inverted = false }: Anima
   return (
     <svg
       className={className}
+      style={style}
       viewBox="0 0 1000 295.18"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Goodidea logo"

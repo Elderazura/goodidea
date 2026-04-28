@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { contactInfo, socialLinks } from '@/data/site'
 import { InstagramIcon, FacebookIcon, LinkedInIcon } from '@/components/ui/SocialIcons'
 
@@ -266,18 +267,18 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <style>{`
-        .social-link:hover {
-          opacity: 1 !important;
-          color: #E85D26 !important;
-        }
+      <style dangerouslySetInnerHTML={{ __html: `
+        .social-link:hover { opacity: 1 !important; color: #E85D26 !important; }
         @media (max-width: 768px) {
-          .contact-grid {
-            grid-template-columns: 1fr !important;
-            gap: 3rem !important;
-          }
+          .contact-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
         }
-      `}</style>
+      ` }} />
+
+      {/* Calendly embed script — loaded only on this page */}
+      <Script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        strategy="lazyOnload"
+      />
     </div>
   )
 }

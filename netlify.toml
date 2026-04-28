@@ -9,30 +9,64 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# ── Security headers (all pages) ────────────────────────────────────────────
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-Frame-Options           = "SAMEORIGIN"
+    X-Content-Type-Options    = "nosniff"
+    X-XSS-Protection          = "1; mode=block"
+    Referrer-Policy           = "strict-origin-when-cross-origin"
+    Permissions-Policy        = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    # Content Security Policy — allows Google Analytics, Calendly, Google Fonts
+    Content-Security-Policy   = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net; frame-src https://calendly.com; object-src 'none'; base-uri 'self'"
 
+# ── Font caching — immutable long-lived ─────────────────────────────────────
 [[headers]]
   for = "/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# ── Image caching — 30 days ──────────────────────────────────────────────────
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=2592000, s-maxage=2592000"
+    Cache-Control = "public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400"
 
+# ── Video caching — 30 days ──────────────────────────────────────────────────
 [[headers]]
   for = "/videos/*"
   [headers.values]
     Cache-Control = "public, max-age=2592000, s-maxage=2592000"
 
+# ── Static assets — 1 year ──────────────────────────────────────────────────
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ── Sitemap redirect ─────────────────────────────────────────────────────────
 [[redirects]]
-  from = "/sitemap.xml"
-  to = "/sitemap"
+  from   = "/sitemap.xml"
+  to     = "/sitemap"
   status = 200
+
+# ── Block access to WordPress paths (safety — old domain may have records) ──
+[[redirects]]
+  from   = "/wp-admin/*"
+  to     = "/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/wp-login.php"
+  to     = "/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/wp-config.php"
+  to     = "/"
+  status = 301
+  force  = true

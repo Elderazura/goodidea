@@ -314,14 +314,14 @@ export default function InsightDetailPage({ params }: Props) {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 768px) {
           .insight-body-grid {
             grid-template-columns: 1fr !important;
             gap: 2.5rem !important;
           }
         }
-      `}</style>
+      ` }} />
     </article>
   )
 }

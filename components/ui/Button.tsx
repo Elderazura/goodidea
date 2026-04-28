@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { useRef, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 
 interface ButtonProps {
@@ -37,6 +40,123 @@ const SIZES = {
   lg: 'px-12 py-5 text-[0.9375rem]',
 }
 
+/** Attaches a GSAP magnetic hover effect to a DOM element */
+function useMagneticEffect(ref: React.RefObject<HTMLElement | null>) {
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    let xTo: ((val: number) => void) | null = null
+    let yTo: ((val: number) => void) | null = null
+    const cleanupFns: (() => void)[] = []
+
+    async function init() {
+      const gsapModule = await import('gsap')
+      const gsap = gsapModule.default || (gsapModule as unknown as { gsap: typeof gsapModule.default }).gsap || gsapModule
+
+      if (!el) return
+
+      xTo = gsap.quickTo(el, 'x', { duration: 0.5, ease: 'power3.out' })
+      yTo = gsap.quickTo(el, 'y', { duration: 0.5, ease: 'power3.out' })
+
+      function onMouseMove(e: MouseEvent) {
+        if (!el || !xTo || !yTo) return
+        const rect = el.getBoundingClientRect()
+        const cx = e.clientX - rect.left - rect.width / 2
+        const cy = e.clientY - rect.top - rect.height / 2
+        xTo(cx * 0.3)
+        yTo(cy * 0.3)
+      }
+
+      function onMouseLeave() {
+        if (!xTo || !yTo) return
+        xTo(0)
+        yTo(0)
+      }
+
+      el.addEventListener('mousemove', onMouseMove)
+      el.addEventListener('mouseleave', onMouseLeave)
+
+      cleanupFns.push(() => {
+        el.removeEventListener('mousemove', onMouseMove)
+        el.removeEventListener('mouseleave', onMouseLeave)
+        // Reset position
+        if (xTo) xTo(0)
+        if (yTo) yTo(0)
+      })
+    }
+
+    init()
+
+    return () => {
+      cleanupFns.forEach(fn => fn())
+    }
+  }, [ref])
+}
+
+/** Internal wrapper that applies the magnetic effect */
+function MagneticAnchor({
+  href,
+  external,
+  className,
+  children,
+}: {
+  href: string
+  external?: boolean
+  className: string
+  children: React.ReactNode
+}) {
+  const ref = useRef<HTMLAnchorElement>(null)
+  useMagneticEffect(ref as React.RefObject<HTMLElement | null>)
+
+  if (external) {
+    return (
+      <a
+        ref={ref}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {children}
+      </a>
+    )
+  }
+
+  return (
+    <Link ref={ref} href={href} className={className}>
+      {children}
+    </Link>
+  )
+}
+
+function MagneticButton({
+  onClick,
+  disabled,
+  className,
+  children,
+}: {
+  onClick?: () => void
+  disabled?: boolean
+  className: string
+  children: React.ReactNode
+}) {
+  const ref = useRef<HTMLButtonElement>(null)
+  useMagneticEffect(ref as React.RefObject<HTMLElement | null>)
+
+  return (
+    <button
+      ref={ref}
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      className={className}
+    >
+      {children}
+    </button>
+  )
+}
+
 export default function Button({
   variant = 'primary',
   size = 'md',
@@ -57,33 +177,16 @@ export default function Button({
   )
 
   if (href) {
-    if (external) {
-      return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={classes}
-        >
-          {label}
-        </a>
-      )
-    }
     return (
-      <Link href={href} className={classes}>
+      <MagneticAnchor href={href} external={external} className={classes}>
         {label}
-      </Link>
+      </MagneticAnchor>
     )
   }
 
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      className={classes}
-    >
+    <MagneticButton onClick={onClick} disabled={disabled} className={classes}>
       {label}
-    </button>
+    </MagneticButton>
   )
 }

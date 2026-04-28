@@ -15,25 +15,25 @@ const TEAM = [
     name: 'Faris Al-Rashid',
     role: 'Founder & Creative Director',
     bio: 'Over 15 years building brands across the Gulf. Formerly at Interbrand Dubai.',
-    image: '/images/works/work-1.jpg',
+    image: '/images/team/team-a.webp',
   },
   {
     name: 'Sara Al-Mansouri',
     role: 'Head of Strategy',
     bio: 'Brand strategist with deep roots in MENA consumer behaviour and positioning.',
-    image: '/images/works/work-2.jpg',
+    image: '/images/team/team-b.webp',
   },
   {
     name: 'Omar Khalil',
     role: 'Senior Designer',
     bio: 'Identity systems, typography, and visual storytelling are his language.',
-    image: '/images/works/work-3.jpg',
+    image: '/images/team/team-c.webp',
   },
   {
     name: 'Layla Nasser',
     role: 'Content & Verbal Identity',
     bio: 'Words that carry weight — naming, messaging, and tone-of-voice architecture.',
-    image: '/images/works/work-4.jpg',
+    image: '/images/team/team-d.webp',
   },
 ]
 
@@ -226,7 +226,7 @@ export default function AboutPage() {
           <div className="reveal-up" style={{ position: 'relative' }}>
             <div style={{ aspectRatio: '3/4', overflow: 'hidden' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/works/work-5.jpg" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/team/studio-1.webp" alt="Goodidea Studio" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             {/* Accent line */}
             <div style={{
@@ -519,7 +519,7 @@ export default function AboutPage() {
       </section>
 
       {/* Responsive */}
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
         .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
         .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
@@ -537,7 +537,7 @@ export default function AboutPage() {
           .team-grid { grid-template-columns: 1fr !important; }
           .values-grid { grid-template-columns: 1fr !important; }
         }
-      `}</style>
+      ` }} />
     </div>
   )
 }
