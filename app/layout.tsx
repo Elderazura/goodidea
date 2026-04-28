@@ -1,34 +1,94 @@
 import type { Metadata } from 'next'
-import { Hepta_Slab } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import InstagramFeed from '@/components/home/InstagramFeed'
 import CustomCursor from '@/components/ui/CustomCursor'
+import JsonLd from '@/components/seo/JsonLd'
 import Script from 'next/script'
 import { siteConfig } from '@/data/site'
 
-const heptaSlab = Hepta_Slab({
-  subsets: ['latin'],
-  variable: '--font-hepta',
-  display: 'swap',
-})
+const BASE_URL = 'https://goodidea.ae'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: {
     default: 'Goodidea — Branding & Strategy Agency Dubai',
-    template: '%s | Goodidea',
+    template: '%s | Goodidea Dubai',
   },
-  description: 'Connecting good strategies with good creativity. Dubai-based branding and strategy agency.',
+  description:
+    'Goodidea is a Dubai-based creative and branding agency. We build brands through strategy, identity, naming, and design — for UAE businesses and beyond.',
+  keywords: [
+    'branding agency Dubai',
+    'brand strategy UAE',
+    'brand identity Dubai',
+    'creative agency Dubai',
+    'naming agency',
+    'logo design Dubai',
+    'brand design UAE',
+    'social media branding Dubai',
+    'marketing agency Dubai',
+    'Goodidea Dubai',
+  ],
+  authors: [{ name: 'Goodidea', url: BASE_URL }],
+  creator: 'Goodidea FZ LLC',
+  publisher: 'Goodidea FZ LLC',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    siteName: 'Goodidea',
+    type: 'website',
     locale: 'en_AE',
+    url: BASE_URL,
+    siteName: 'Goodidea',
+    title: 'Goodidea — Branding & Strategy Agency Dubai',
+    description:
+      'Dubai-based creative and branding agency. We build brands that mean something — through strategy, identity, and design.',
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Goodidea — Branding & Strategy Agency Dubai',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Goodidea — Branding & Strategy Agency Dubai',
+    description: 'Dubai-based creative and branding agency building brands that mean something.',
+    images: ['/images/og-image.jpg'],
+    creator: '@goodideadubai',
+  },
+  alternates: {
+    canonical: BASE_URL,
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={heptaSlab.variable}>
+    <html lang="en" style={{ backgroundColor: '#F8F5F0' }}>
       <head>
+        {/* Google Fonts: Cormorant Garamond */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap"
+          rel="stylesheet"
+        />
+
+        {/* Gotham preloads */}
         <link
           rel="preload"
           as="font"
@@ -53,7 +113,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Header />
+        <JsonLd />
         <main className="pt-16 md:pt-20">{children}</main>
+        <InstagramFeed />
         <Footer />
         <CustomCursor />
 

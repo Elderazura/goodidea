@@ -1,29 +1,16 @@
-import HomeSlider from '@/components/home/HomeSlider'
-import WorksGrid from '@/components/home/WorksGrid'
-import CTABlock from '@/components/home/CTABlock'
-import InsightsGrid from '@/components/home/InsightsGrid'
-import { works } from '@/data/works'
-import { insights } from '@/data/insights'
+import HeroSection from '@/components/home/HeroSection'
+import HomeBody from '@/components/home/HomeBody'
 
 export const metadata = {
   title: 'Goodidea — Branding & Strategy Agency Dubai',
+  description: 'Dubai-based creative and branding agency. We build brands that mean something.',
 }
 
-export default function HomePage() {
-  const sliderWorks = works.slice(0, 8)
-
+export default function Home() {
   return (
-    <>
-      <HomeSlider works={sliderWorks} />
-      <WorksGrid works={works} />
-      <CTABlock
-        heading="Got a good idea?"
-        content="Let's shape it into a brand that connects with your audience."
-        ctaLink="/contact"
-        ctaLabel="Start a Project"
-        mode="dark"
-      />
-      <InsightsGrid insights={insights} showFilter={false} />
-    </>
+    <main>
+      <HeroSection />
+      <HomeBody />
+    </main>
   )
 }

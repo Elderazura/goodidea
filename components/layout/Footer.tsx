@@ -1,141 +1,246 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { contactInfo, socialLinks, siteConfig, navLinks } from '@/data/site'
-import { InstagramIcon, FacebookIcon, LinkedInIcon } from '@/components/ui/SocialIcons'
-
-const iconMap = { instagram: InstagramIcon, facebook: FacebookIcon, linkedin: LinkedInIcon }
-
-const STATS = [
-  { value: 200, suffix: '+', label: 'Projects delivered' },
-  { value: 8,   suffix: '',  label: 'Years in Dubai'     },
-  { value: 40,  suffix: '+', label: 'Brand identities'   },
-]
+import Link from 'next/link'
+import { InstagramIcon, LinkedInIcon, FacebookIcon } from '@/components/ui/SocialIcons'
 
 export default function Footer() {
-  const statsRef  = useRef<HTMLDivElement>(null)
-  const triggered = useRef(false)
-
-  useEffect(() => {
-    async function init() {
-      const { default: gsap } = await import('gsap')
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
-      gsap.registerPlugin(ScrollTrigger)
-      if (!statsRef.current || triggered.current) return
-      triggered.current = true
-      const counters = statsRef.current.querySelectorAll<HTMLSpanElement>('[data-count]')
-      ScrollTrigger.create({
-        trigger: statsRef.current,
-        start: 'top 85%',
-        once: true,
-        onEnter: () => {
-          counters.forEach(el => {
-            const target = parseInt(el.getAttribute('data-count') ?? '0', 10)
-            const obj = { val: 0 }
-            gsap.to(obj, {
-              val: target,
-              duration: 1.8,
-              ease: 'power2.out',
-              onUpdate() { el.textContent = String(Math.round(obj.val)) },
-            })
-          })
-        },
-      })
-    }
-    init()
-  }, [])
-
-  function openCalendly() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    if (typeof window !== 'undefined' && (window as any).Calendly) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ;(window as any).Calendly.initPopupWidget({ url: contactInfo.calendlyUrl })
-    }
-  }
-
   return (
-    <footer className="bg-paper border-t border-ink/10">
-      {/* Stats */}
-      <div ref={statsRef} className="border-b border-ink/10">
-        <div className="max-w-[1280px] mx-auto px-6 grid grid-cols-3 divide-x divide-ink/10">
-          {STATS.map(stat => (
-            <div key={stat.label} className="py-10 md:py-14 px-6 text-center">
-              <p className="font-serif t-headline text-ink leading-none">
-                <span data-count={stat.value}>0</span>{stat.suffix}
-              </p>
-              <p className="t-caption text-ink/50 mt-3">{stat.label}</p>
-            </div>
-          ))}
+    <footer style={{ background: 'var(--bg)', color: 'var(--ink)' }}>
+
+      {/* ── 1. CTA Band ── */}
+      <div
+        className="w-full"
+        style={{ background: 'var(--ink)', color: '#fff' }}
+      >
+        <div
+          className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-12"
+          style={{ padding: '4rem 5%' }}
+        >
+          <p
+            className="font-serif leading-none"
+            style={{
+              fontStyle: 'italic',
+              fontSize: 'clamp(3rem, 6vw, 7rem)',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Got a good idea?
+          </p>
+
+          <a
+            href="mailto:dubaiis@goodidea.ae"
+            className="self-start md:self-auto inline-block font-sans-bold uppercase tracking-widest transition-colors duration-200"
+            style={{
+              fontSize: '0.875rem',
+              letterSpacing: '0.12em',
+              border: '1px solid rgba(255,255,255,0.4)',
+              padding: '1rem 2rem',
+              color: '#fff',
+              whiteSpace: 'nowrap',
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLAnchorElement
+              el.style.borderColor = '#fff'
+              el.style.background = 'var(--accent)'
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLAnchorElement
+              el.style.borderColor = 'rgba(255,255,255,0.4)'
+              el.style.background = 'transparent'
+            }}
+          >
+            START A PROJECT →
+          </a>
         </div>
       </div>
 
-      {/* Main body */}
-      <div className="max-w-[1280px] mx-auto px-6 py-16 md:py-24 grid grid-cols-1 md:grid-cols-12 gap-12">
-        {/* Contact */}
-        <div className="md:col-span-4">
-          <p className="t-caption text-ink/50 mb-6">Get in touch</p>
-          <address className="font-sans text-body text-ink not-italic leading-loose">
-            {contactInfo.address}
-            <br />
-            <a href={`mailto:${contactInfo.email}`} className="hover:text-ink/50 transition-colors duration-300 block">{contactInfo.email}</a>
-            <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="hover:text-ink/50 transition-colors duration-300 block">{contactInfo.phone}</a>
-          </address>
-          <button
-            onClick={openCalendly}
-            className="mt-8 inline-flex items-center gap-3 border border-ink px-6 py-4 t-caption text-ink hover:bg-ink hover:text-paper transition-colors duration-300"
+      {/* ── 2. Middle info row ── */}
+      <div
+        className="grid grid-cols-1 md:grid-cols-3"
+        style={{ padding: '4rem 5%', borderTop: '1px solid var(--ink-20)' }}
+      >
+        {/* Col 1 — Contact */}
+        <div
+          className="pb-10 md:pb-0 md:pr-10"
+          style={{ borderBottom: '1px solid var(--ink-20)' }}
+        >
+          <p
+            className="font-sans-bold uppercase tracking-widest mb-5"
+            style={{ fontSize: '0.75rem', color: 'var(--ink-60)' }}
           >
-            Schedule Meeting
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-          </button>
+            Contact
+          </p>
+          <address className="not-italic" style={{ fontStyle: 'normal' }}>
+            <a
+              href="mailto:dubaiis@goodidea.ae"
+              className="block font-sans hover:opacity-60 transition-opacity duration-200 mb-1"
+              style={{ color: 'var(--ink)', fontSize: '0.9375rem' }}
+            >
+              dubaiis@goodidea.ae
+            </a>
+            <a
+              href="tel:+971501350609"
+              className="block font-sans hover:opacity-60 transition-opacity duration-200 mb-4"
+              style={{ color: 'var(--ink)', fontSize: '0.9375rem' }}
+            >
+              +971 50 135 0609
+            </a>
+            <p
+              className="font-sans leading-relaxed"
+              style={{ color: 'var(--ink)', fontSize: '0.9375rem', opacity: 0.7 }}
+            >
+              1705, Al Manara Tower,<br />
+              Business Bay, Dubai
+            </p>
+          </address>
         </div>
 
-        {/* Nav */}
-        <div className="md:col-span-3 md:col-start-6">
-          <p className="t-caption text-ink/50 mb-6">Navigate</p>
-          <nav className="flex flex-col gap-3">
-            {navLinks.map(link => (
-              <a key={link.href} href={link.href} className="font-sans text-subhead text-ink hover:text-ink/50 transition-colors duration-300 w-fit">{link.label}</a>
+        {/* Col 2 — Services */}
+        <div
+          className="py-10 md:py-0 md:px-10 md:border-l md:border-r"
+          style={{
+            borderTop: '1px solid var(--ink-20)',
+            borderBottom: '1px solid var(--ink-20)',
+          }}
+        >
+          <p
+            className="font-sans-bold uppercase tracking-widest mb-5"
+            style={{ fontSize: '0.75rem', color: 'var(--ink-60)' }}
+          >
+            Services
+          </p>
+          <ul className="flex flex-col gap-2">
+            {[
+              'Brand Identity',
+              'Brand Strategy',
+              'Social Media',
+              'Naming',
+              'Tone of Voice',
+              'Website Design',
+            ].map((service) => (
+              <li
+                key={service}
+                className="font-sans"
+                style={{ color: 'var(--ink)', fontSize: '0.9375rem', opacity: 0.85 }}
+              >
+                {service}
+              </li>
             ))}
-          </nav>
+          </ul>
         </div>
 
-        {/* Social */}
-        <div className="md:col-span-2 md:col-start-11">
-          <p className="t-caption text-ink/50 mb-6">Follow</p>
+        {/* Col 3 — Follow */}
+        <div
+          className="pt-10 md:pt-0 md:pl-10"
+          style={{ borderTop: '1px solid var(--ink-20)' }}
+        >
+          <p
+            className="font-sans-bold uppercase tracking-widest mb-5"
+            style={{ fontSize: '0.75rem', color: 'var(--ink-60)' }}
+          >
+            Follow
+          </p>
           <ul className="flex flex-col gap-4">
-            {socialLinks.map(link => {
-              const Icon = iconMap[link.icon as keyof typeof iconMap]
-              return (
-                <li key={link.href}>
-                  <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label} className="text-ink hover:text-ink/50 transition-colors duration-300">
-                    {Icon && <Icon width={20} height={20} />}
-                  </a>
-                </li>
-              )
-            })}
+            <li>
+              <a
+                href="https://www.instagram.com/goodideadubai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center hover:opacity-60 transition-opacity duration-200"
+                style={{ gap: '0.75rem', color: 'var(--ink)' }}
+              >
+                <InstagramIcon width={20} height={20} />
+                <span className="font-sans" style={{ fontSize: '0.9375rem' }}>
+                  @goodideadubai
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/goodideadubai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center hover:opacity-60 transition-opacity duration-200"
+                style={{ gap: '0.75rem', color: 'var(--ink)' }}
+              >
+                <LinkedInIcon width={20} height={20} />
+                <span className="font-sans" style={{ fontSize: '0.9375rem' }}>
+                  Goodidea Dubai
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/goodideadubai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center hover:opacity-60 transition-opacity duration-200"
+                style={{ gap: '0.75rem', color: 'var(--ink)' }}
+              >
+                <FacebookIcon width={20} height={20} />
+                <span className="font-sans" style={{ fontSize: '0.9375rem' }}>
+                  goodideadubai
+                </span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
-      {/* Giant lettermark */}
-      <div className="overflow-hidden select-none" aria-hidden>
-        <p className="font-sans-bold text-ink leading-[0.85] px-4 tracking-tight opacity-[0.06] whitespace-nowrap" style={{ fontSize: 'clamp(5rem, 16vw, 20rem)' }}>
-          GOODIDEA
+      {/* ── 3. Giant wordmark row ── */}
+      <div
+        className="overflow-hidden select-none"
+        style={{ borderTop: '1px solid var(--ink-20)' }}
+        aria-hidden
+      >
+        <p
+          className="font-serif leading-none whitespace-nowrap"
+          style={{
+            fontSize: 'clamp(8rem, 18vw, 22rem)',
+            fontWeight: 900,
+            fontStyle: 'italic',
+            letterSpacing: '-0.04em',
+            color: 'var(--ink)',
+            opacity: 0.08,
+            lineHeight: 0.9,
+            paddingLeft: '2%',
+          }}
+        >
+          goodidea
         </p>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-ink/10">
-        <div className="max-w-[1280px] mx-auto px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="t-caption text-ink/40">{siteConfig.copyright}</p>
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="t-caption text-ink/40 hover:text-ink transition-colors duration-300">
-            Back to top ↑
-          </button>
+      {/* ── Bottom bar ── */}
+      <div style={{ borderTop: '1px solid var(--ink-20)' }}>
+        <div
+          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+          style={{ padding: '1.5rem 5%' }}
+        >
+          <p
+            className="font-sans"
+            style={{ fontSize: '0.75rem', color: 'var(--ink-60)' }}
+          >
+            © 2025 Goodidea FZ LLC. All rights reserved.
+          </p>
+          <nav className="flex items-center gap-6">
+            {[
+              { label: 'Privacy', href: '/privacy' },
+              { label: 'Terms', href: '/terms' },
+              { label: 'Sitemap', href: '/sitemap.xml' },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="font-sans hover:opacity-100 transition-opacity duration-200"
+                style={{ fontSize: '0.75rem', color: 'var(--ink-60)', opacity: 0.7 }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
 
-      <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-      <script src="https://assets.calendly.com/assets/external/widget.js" async />
     </footer>
   )
 }

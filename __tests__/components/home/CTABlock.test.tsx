@@ -1,26 +1,23 @@
 import { render, screen } from '@testing-library/react'
 import CTABlock from '@/components/home/CTABlock'
 
-test('renders heading text', () => {
-  render(<CTABlock heading="Let's Talk" content="Start a project" ctaLink="/contact" ctaLabel="Contact Us" />)
-  expect(screen.getByText("Let's Talk")).toBeInTheDocument()
+test('renders headline text', () => {
+  render(<CTABlock />)
+  expect(screen.getByText(/ready to build something remarkable/i)).toBeInTheDocument()
 })
 
-test('renders CTA link', () => {
-  render(<CTABlock heading="Let's Talk" content="Start a project" ctaLink="/contact" ctaLabel="Contact Us" />)
-  expect(screen.getByRole('link', { name: /contact us/i })).toHaveAttribute('href', '/contact')
+test('renders start a project link', () => {
+  render(<CTABlock />)
+  expect(screen.getByRole('link', { name: /start a project/i })).toHaveAttribute('href', '/contact')
 })
 
-test('applies dark mode classes', () => {
-  const { container } = render(
-    <CTABlock heading="H" content="C" ctaLink="/" ctaLabel="Go" mode="dark" />
-  )
-  expect(container.firstChild).toHaveClass('bg-dark')
+test('renders book a free call link', () => {
+  render(<CTABlock />)
+  expect(screen.getByRole('link', { name: /book a free call/i })).toBeInTheDocument()
 })
 
-test('applies light mode by default', () => {
-  const { container } = render(
-    <CTABlock heading="H" content="C" ctaLink="/" ctaLabel="Go" />
-  )
-  expect(container.firstChild).toHaveClass('bg-light')
+test('renders with dark background', () => {
+  const { container } = render(<CTABlock />)
+  const section = container.firstChild as HTMLElement
+  expect(section?.style.backgroundColor).toBe('rgb(17, 31, 42)')
 })

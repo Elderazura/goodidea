@@ -11,12 +11,14 @@ test('renders as anchor with correct href', () => {
   expect(screen.getByRole('link')).toHaveAttribute('href', '/contact')
 })
 
-test('applies dark variant class by default', () => {
+test('applies primary variant class by default', () => {
   render(<Button href="/contact">Get Started</Button>)
-  expect(screen.getByRole('link')).toHaveClass('bg-dark')
+  const link = screen.getByRole('link')
+  expect(link.className).toContain('bg-[var(--ink')
 })
 
-test('applies light variant class when mode is light', () => {
-  render(<Button href="/contact" mode="light">Get Started</Button>)
-  expect(screen.getByRole('link')).toHaveClass('bg-light')
+test('applies secondary variant class when variant is secondary', () => {
+  render(<Button href="/contact" variant="secondary">Get Started</Button>)
+  const link = screen.getByRole('link')
+  expect(link.className).toContain('bg-transparent')
 })
