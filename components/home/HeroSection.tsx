@@ -21,17 +21,17 @@ const COL1_BASE: Card[] = [
 ]
 // Column 2 (downward, medium)
 const COL2_BASE: Card[] = [
-  { src: '/images/works/orego-2.webp',  slug: 'orego',           label: 'Orego' },
-  { src: '/images/works/woodo-3.webp',  slug: 'woodo',           label: 'Woodo' },
-  { src: '/images/works/orego-3.webp',  slug: 'orego',           label: 'Orego' },
-  { src: '/images/works/work-3.jpg',    slug: 'meridian-identity', label: 'Meridian' },
+  { src: '/images/works/orego-2.webp',   slug: 'orego',    label: 'Orego' },
+  { src: '/images/works/woodo-3.webp',   slug: 'woodo',    label: 'Woodo' },
+  { src: '/images/works/meraki-3.jpg',   slug: 'meraki',   label: 'Meraki' },
+  { src: '/images/works/sheisfit-5.jpg', slug: 'she-is-fit', label: 'She Is Fit' },
 ]
 // Column 3 (upward, fastest)
 const COL3_BASE: Card[] = [
-  { src: '/images/works/project-b.webp', slug: 'qawafil',       label: 'Qawafil' },
-  { src: '/images/works/work-4.jpg',     slug: 'pivot-strategy', label: 'Pivot' },
-  { src: '/images/works/project-c.webp', slug: 'woodo',         label: 'Woodo' },
-  { src: '/images/works/work-2.jpg',     slug: 'nova-identity',  label: 'Nova' },
+  { src: '/images/works/qawafil-1.webp', slug: 'qawafil',   label: 'Qawafil' },
+  { src: '/images/works/files-4.webp',   slug: 'files',     label: 'Files' },
+  { src: '/images/works/meraki-1.jpg',   slug: 'meraki',    label: 'Meraki' },
+  { src: '/images/works/sheisfit-6.jpg', slug: 'she-is-fit', label: 'She Is Fit' },
 ]
 
 // Duplicate for seamless loop

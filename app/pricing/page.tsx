@@ -455,7 +455,7 @@ export default function PricingPage() {
 
         <div className="works-grid-2">
           {[
-            { href: '/works/woodo', src: '/images/works/woodo-cover.webp', name: 'Woodo', tag: 'Brand Identity' },
+            { href: '/works/woodo', src: '/images/works/woodo-3.webp', name: 'Woodo', tag: 'Brand Identity' },
             { href: '/works/orego', src: '/images/works/orego-cover.webp', name: 'Orego', tag: 'Brand Identity' },
           ].map(work => (
             <Link key={work.name} href={work.href} className="work-card-link reveal-up">

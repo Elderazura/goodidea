@@ -11,9 +11,9 @@ import { insights } from '@/data/insights'
 gsap.registerPlugin(ScrollTrigger)
 
 const worksItems = [
-  { href: '/works/woodo', src: '/images/works/woodo-cover.webp', name: 'Woodo', tag: 'Brand Identity' },
+  { href: '/works/woodo', src: '/images/works/woodo-3.webp', name: 'Woodo', tag: 'Brand Identity' },
   { href: '/works/orego', src: '/images/works/orego-cover.webp', name: 'Orego', tag: 'Brand Identity' },
-  { href: '/works/files', src: '/images/works/files-cover.webp', name: 'Files', tag: 'Brand Identity' },
+  { href: '/works/files', src: '/images/works/files-3.webp', name: 'Files', tag: 'Brand Identity' },
 ]
 
 export default function InsightsPage() {

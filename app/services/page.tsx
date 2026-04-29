@@ -23,7 +23,7 @@ const SERVICES: Service[] = [
     description:
       'We craft visual identities that are distinctive, ownable, and built to last — from logo and typography to the full visual language of your brand.',
     link: '/contact',
-    image: '/images/works/woodo-cover.webp',
+    image: '/images/works/woodo-3.webp',
   },
   {
     number: '02',
@@ -31,7 +31,7 @@ const SERVICES: Service[] = [
     description:
       'We build the strategic foundations that give your brand clarity, direction, and a reason to exist — positioning, messaging, and go-to-market frameworks that work.',
     link: '/contact',
-    image: '/images/works/pivot-cover.webp',
+    image: '/images/works/files-3.webp',
   },
   {
     number: '03',
@@ -47,7 +47,7 @@ const SERVICES: Service[] = [
     description:
       'We find the words that work — brand names, taglines, and tone-of-voice guidelines that make your brand sound as distinctive as it looks.',
     link: '/contact',
-    image: '/images/works/qawafil-cover.webp',
+    image: '/images/works/qawafil-1.webp',
   },
   {
     number: '05',
@@ -66,9 +66,9 @@ const SERVICES: Service[] = [
 ]
 
 const WORK_TEASERS = [
-  { title: 'Woodo', category: 'Brand Identity', image: '/images/works/woodo-cover.webp', href: '/works' },
-  { title: 'Orego', category: 'Social Media Branding', image: '/images/works/orego-cover.webp', href: '/works' },
-  { title: 'Files', category: 'Brand Strategy', image: '/images/works/files-cover.webp', href: '/works' },
+  { title: 'Woodo', category: 'Brand Identity', image: '/images/works/woodo-3.webp', href: '/works/woodo' },
+  { title: 'Orego', category: 'Brand Identity', image: '/images/works/orego-cover.webp', href: '/works/orego' },
+  { title: 'Files', category: 'Brand Identity', image: '/images/works/files-3.webp', href: '/works/files' },
 ]
 
 function ServiceRow({ service, index }: { service: Service; index: number }) {
