@@ -36,9 +36,9 @@ export default function FeaturedScrollSection() {
 
             {/* Headline */}
             <h2 style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 900,
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(2.5rem, 6vw, 6rem)',
               lineHeight: 0.95,
               letterSpacing: '-0.03em',
@@ -115,9 +115,9 @@ export default function FeaturedScrollSection() {
           }}>
             <div>
               <p style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "'Hepta Slab', Georgia, serif",
                 fontWeight: 700,
-                fontStyle: 'italic',
+                
                 fontSize: 'clamp(1.25rem, 3vw, 2rem)',
                 color: '#ffffff',
                 margin: '0 0 0.2rem',

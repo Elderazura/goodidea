@@ -31,9 +31,9 @@ export default function AboutSection() {
           <h2
             className="reveal-up"
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 900,
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(2.5rem, 5vw, 5.5rem)',
               lineHeight: 1.0,
               color: '#ffffff',
@@ -97,9 +97,9 @@ export default function AboutSection() {
             zIndex: 10,
           }}>
             <div style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 900,
-              fontStyle: 'italic',
+              
               fontSize: '3.5rem',
               color: '#ffffff',
               lineHeight: 1,

@@ -245,9 +245,9 @@ export default function PricingPage() {
           <span className="hero-line" style={{ display: 'inline-block' }}>Transparent Pricing</span>
         </p>
         <h1 style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(4rem, 8vw, 9rem)',
           lineHeight: 1.0,
           color: '#111F2A',
@@ -320,9 +320,9 @@ export default function PricingPage() {
                     marginBottom: '0.25rem',
                   }}>AED</p>
                   <p style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    fontFamily: "'Hepta Slab', Georgia, serif",
                     fontWeight: 900,
-                    fontStyle: 'italic',
+                    
                     fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
                     lineHeight: 1,
                     color: textColor,
@@ -408,9 +408,9 @@ export default function PricingPage() {
           FAQ
         </p>
         <h2 className="reveal-up" style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
           lineHeight: 1.05,
           color: '#111F2A',
@@ -442,9 +442,9 @@ export default function PricingPage() {
           Why It&apos;s Worth It
         </p>
         <h2 className="reveal-up" style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
           lineHeight: 1.05,
           color: '#111F2A',
@@ -481,7 +481,7 @@ export default function PricingPage() {
                   {work.tag}
                 </p>
                 <p style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Hepta Slab', Georgia, serif",
                   fontWeight: 700,
                   fontSize: '1.375rem',
                   color: '#111F2A',
@@ -513,9 +513,9 @@ export default function PricingPage() {
       {/* ── CTA ── */}
       <section className="pricing-cta">
         <h2 style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(2.5rem, 5vw, 5rem)',
           lineHeight: 1.05,
           color: '#F8F5F0',

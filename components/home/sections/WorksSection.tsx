@@ -37,9 +37,9 @@ export default function WorksSection() {
             Selected Work
           </p>
           <h2 style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Hepta Slab', Georgia, serif",
             fontWeight: 900,
-            fontStyle: 'italic',
+            
             fontSize: 'clamp(3rem, 7vw, 7rem)',
             lineHeight: 0.92,
             color: '#111F2A',

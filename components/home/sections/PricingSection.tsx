@@ -30,9 +30,9 @@ export default function PricingSection() {
           Investment
         </p>
         <h2 style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(3rem, 6vw, 6rem)',
           lineHeight: 0.92,
           color: '#111F2A',
@@ -74,9 +74,9 @@ export default function PricingSection() {
               {p.tier}
             </p>
             <p style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 900,
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)',
               color: '#E85D26',
               marginBottom: '1.25rem',

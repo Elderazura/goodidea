@@ -178,9 +178,9 @@ export default function WorkDetailClient({ work, prev, next, otherWorks }: WorkD
           {/* Title with per-word overflow-hidden wrappers */}
           <h1
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 900,
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(5rem, 10vw, 12rem)',
               lineHeight: 0.95,
               color: '#ffffff',
@@ -592,9 +592,9 @@ export default function WorkDetailClient({ work, prev, next, otherWorks }: WorkD
                     </p>
                     <p
                       style={{
-                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                        fontFamily: "'Hepta Slab', Georgia, serif",
                         fontWeight: 700,
-                        fontStyle: 'italic',
+                        
                         fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
                         color: '#ffffff',
                         margin: 0,

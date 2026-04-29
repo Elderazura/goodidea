@@ -149,8 +149,8 @@ export default function WorkCard({ work, featured = false, index }: WorkCardProp
         >
           <p
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontStyle: 'italic',
+              fontFamily: '"Hepta Slab", Georgia, serif',
+              
               fontSize: '1.5rem',
               color: '#ffffff',
               opacity: hovered ? 1 : 0,
@@ -216,8 +216,8 @@ export default function WorkCard({ work, featured = false, index }: WorkCardProp
         <div style={{ marginTop: '1rem' }}>
           <h3
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontStyle: 'italic',
+              fontFamily: '"Hepta Slab", Georgia, serif',
+              
               fontWeight: 900,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)',
               color: '#111F2A',

@@ -43,7 +43,7 @@ export default function TermsPage() {
         <p style={{ fontFamily: "'Gotham Book', sans-serif", fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#E85D26', marginBottom: '1rem' }}>
           Legal
         </p>
-        <h1 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 900, fontStyle: 'italic', fontSize: 'clamp(2.5rem, 5vw, 5rem)', lineHeight: 1, color: '#111F2A', marginBottom: '3rem' }}>
+        <h1 style={{ fontFamily: "'Hepta Slab', Georgia, serif", fontWeight: 900,  fontSize: 'clamp(2.5rem, 5vw, 5rem)', lineHeight: 1, color: '#111F2A', marginBottom: '3rem' }}>
           Terms of Use
         </h1>
         <p style={{ fontFamily: "'Gotham Book', sans-serif", fontSize: '0.85rem', color: 'rgba(17,31,42,0.5)', marginBottom: '3rem' }}>

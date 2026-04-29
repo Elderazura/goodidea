@@ -32,14 +32,14 @@ const config: Config = {
         sans:          ['"Gotham Book"',       '"Helvetica Neue"', 'sans-serif'],
         medium:        ['"Gotham Medium"',     '"Helvetica Neue"', 'sans-serif'],
         bold:          ['"Gotham Bold"',       '"Helvetica Neue"', 'sans-serif'],
-        serif:         ['"Cormorant Garamond"','Georgia', 'serif'],
+        serif:         ['"Hepta Slab"','Georgia', 'serif'],
         // legacy aliases — keep existing components working
         'sans-medium': ['"Gotham Medium"',     '"Helvetica Neue"', 'sans-serif'],
         'sans-bold':   ['"Gotham Bold"',       '"Helvetica Neue"', 'sans-serif'],
         gotham:        ['"Gotham Book"',        'sans-serif'],
         'gotham-bold': ['"Gotham Bold"',        'sans-serif'],
         'gotham-medium': ['"Gotham Medium"',    'sans-serif'],
-        hepta:         ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        hepta:         ['"Hepta Slab"', 'Georgia', 'serif'],
       },
       fontSize: {
         'display':  ['clamp(5rem, 12vw, 14rem)',     { lineHeight: '0.9',  letterSpacing: '-0.04em' }],

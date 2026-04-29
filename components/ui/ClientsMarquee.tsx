@@ -115,9 +115,9 @@ export default function ClientsMarquee({
               }}
             >
               <span style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "'Hepta Slab', Georgia, serif",
                 fontWeight: 700,
-                fontStyle: 'italic',
+                
                 fontSize: 'clamp(2rem, 5vw, 4.5rem)',
                 lineHeight: 1,
                 letterSpacing: '-0.02em',

@@ -121,8 +121,8 @@ export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProp
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        fontFamily: "'Cormorant Garamond', Georgia, serif",
-                        fontStyle: 'italic',
+                        fontFamily: "'Hepta Slab', Georgia, serif",
+                        
                         fontWeight: 700,
                         fontSize: '1.75rem',
                         lineHeight: 1.15,

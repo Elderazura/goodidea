@@ -111,8 +111,8 @@ export default function ContactModal() {
                   Let&apos;s work together
                 </p>
                 <h2 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontWeight: 900, fontStyle: 'italic',
+                  fontFamily: "'Hepta Slab', Georgia, serif",
+                  fontWeight: 900, 
                   fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
                   color: '#111F2A', margin: 0, lineHeight: 1.05,
                 }}>
@@ -155,8 +155,8 @@ export default function ContactModal() {
                     </svg>
                   </div>
                   <h3 style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
-                    fontWeight: 900, fontStyle: 'italic',
+                    fontFamily: "'Hepta Slab', Georgia, serif",
+                    fontWeight: 900, 
                     fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
                     color: '#111F2A', margin: '0 0 1rem',
                   }}>

@@ -110,9 +110,9 @@ export default function InstagramFeed() {
           </p>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 900,
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(2rem, 4.5vw, 4rem)',
               lineHeight: 0.92,
               color: '#ffffff',

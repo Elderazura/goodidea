@@ -152,8 +152,8 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flexShrink: 0 }}>
           <span
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontStyle: 'italic',
+              fontFamily: "'Hepta Slab', Georgia, serif",
+              
               fontSize: 'clamp(1rem, 2vw, 1.25rem)',
               color: '#E85D26',
               opacity: 0.7,
@@ -173,9 +173,9 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
         <div style={{ minWidth: 0 }}>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 900,
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(1.75rem, 5vw, 5rem)',
               lineHeight: 1.0,
               letterSpacing: '-0.02em',
@@ -393,9 +393,9 @@ export default function ServicesPage() {
         {/* Giant headline */}
         <div
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Hepta Slab', Georgia, serif",
             fontWeight: 900,
-            fontStyle: 'italic',
+            
             fontSize: 'clamp(5rem, 13vw, 16rem)',
             lineHeight: 0.88,
             letterSpacing: '-0.04em',
@@ -412,9 +412,9 @@ export default function ServicesPage() {
                 words={['identities', 'strategies', 'names', 'stories', 'brands']}
                 interval={2800}
                 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Hepta Slab', Georgia, serif",
                   fontWeight: 900,
-                  fontStyle: 'italic',
+                  
                   fontSize: 'clamp(5rem, 13vw, 16rem)',
                   lineHeight: 0.88,
                   letterSpacing: '-0.04em',
@@ -457,9 +457,9 @@ export default function ServicesPage() {
               <div key={label} style={{ textAlign: 'right' }}>
                 <div
                   style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    fontFamily: "'Hepta Slab', Georgia, serif",
                     fontWeight: 900,
-                    fontStyle: 'italic',
+                    
                     fontSize: '2.5rem',
                     color: '#E85D26',
                     lineHeight: 1,
@@ -511,9 +511,9 @@ export default function ServicesPage() {
           </p>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 900,
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(2.5rem, 5vw, 5rem)',
               lineHeight: 0.95,
               letterSpacing: '-0.02em',
@@ -572,9 +572,9 @@ export default function ServicesPage() {
             </p>
             <h2
               style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "'Hepta Slab', Georgia, serif",
                 fontWeight: 900,
-                fontStyle: 'italic',
+                
                 fontSize: 'clamp(2.5rem, 5vw, 5rem)',
                 lineHeight: 0.95,
                 letterSpacing: '-0.02em',
@@ -635,9 +635,9 @@ export default function ServicesPage() {
               </div>
               <p
                 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Hepta Slab', Georgia, serif",
                   fontWeight: 700,
-                  fontStyle: 'italic',
+                  
                   fontSize: '1.5rem',
                   color: '#111F2A',
                   margin: '0 0 0.25rem 0',
@@ -689,9 +689,9 @@ export default function ServicesPage() {
           </p>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 900,
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(2.5rem, 5vw, 5rem)',
               lineHeight: 0.95,
               letterSpacing: '-0.02em',
@@ -737,9 +737,9 @@ export default function ServicesPage() {
               </p>
               <h3
                 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Hepta Slab', Georgia, serif",
                   fontWeight: 900,
-                  fontStyle: 'italic',
+                  
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                   lineHeight: 1.0,
                   letterSpacing: '-0.02em',
@@ -829,9 +829,9 @@ export default function ServicesPage() {
         <h2
           className="reveal-up"
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Hepta Slab', Georgia, serif",
             fontWeight: 900,
-            fontStyle: 'italic',
+            
             fontSize: 'clamp(3.5rem, 9vw, 10rem)',
             lineHeight: 0.9,
             letterSpacing: '-0.03em',

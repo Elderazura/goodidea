@@ -94,9 +94,9 @@ export default function InsightDetailPage({ params }: Props) {
         {/* Title */}
         <h1
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Hepta Slab', Georgia, serif",
             fontWeight: 900,
-            fontStyle: 'italic',
+            
             fontSize: 'clamp(3rem, 6vw, 6rem)',
             lineHeight: 1.0,
             color: '#111F2A',
@@ -168,7 +168,7 @@ export default function InsightDetailPage({ params }: Props) {
                 fontSize: '1rem',
                 lineHeight: 1.8,
                 color: 'rgba(17,31,42,0.7)',
-                fontStyle: 'italic',
+                
                 borderLeft: '3px solid #E85D26',
                 paddingLeft: '1.5rem',
                 margin: '2rem 0',

@@ -129,9 +129,9 @@ export default function InsightsPage() {
           <span className="hero-line" style={{ display: 'inline-block' }}>Insights</span>
         </p>
         <h1 style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(4rem, 8vw, 9rem)',
           lineHeight: 1.0,
           color: '#111F2A',
@@ -170,9 +170,9 @@ export default function InsightsPage() {
           Our Work
         </p>
         <h2 className="reveal-up" style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
           lineHeight: 1.05,
           color: '#111F2A',
@@ -206,7 +206,7 @@ export default function InsightsPage() {
                   {work.tag}
                 </p>
                 <p style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Hepta Slab', Georgia, serif",
                   fontWeight: 700,
                   fontSize: '1.375rem',
                   color: '#111F2A',
@@ -238,9 +238,9 @@ export default function InsightsPage() {
       {/* ── About Teaser ── */}
       <section id="insights-about" className="insights-about">
         <blockquote style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 700,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(2rem, 4vw, 3.5rem)',
           lineHeight: 1.15,
           color: '#F8F5F0',

@@ -155,9 +155,9 @@ export default function AboutPage() {
 
         {/* Center: giant headline */}
         <div style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(5rem, 12vw, 15rem)',
           lineHeight: 0.88,
           letterSpacing: '-0.04em',
@@ -172,9 +172,9 @@ export default function AboutPage() {
               words={['brand', 'creative', 'strategy', 'design']}
               interval={3000}
               style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "'Hepta Slab', Georgia, serif",
                 fontWeight: 900,
-                fontStyle: 'italic',
+                
                 fontSize: 'clamp(5rem, 12vw, 15rem)',
                 lineHeight: 0.88,
                 letterSpacing: '-0.04em',
@@ -213,8 +213,8 @@ export default function AboutPage() {
             {[['12+', 'Years'], ['200+', 'Brands'], ['3', 'Cities']].map(([val, label]) => (
               <div key={label} style={{ textAlign: 'right' }}>
                 <div style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontWeight: 900, fontStyle: 'italic',
+                  fontFamily: "'Hepta Slab', Georgia, serif",
+                  fontWeight: 900, 
                   fontSize: '2.5rem', color: '#E85D26', lineHeight: 1,
                 }}>{val}</div>
                 <div style={{
@@ -265,8 +265,8 @@ export default function AboutPage() {
               Our Origin
             </p>
             <h2 className="reveal-up" style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontWeight: 900, fontStyle: 'italic',
+              fontFamily: "'Hepta Slab', Georgia, serif",
+              fontWeight: 900, 
               fontSize: 'clamp(2rem, 4vw, 4rem)',
               lineHeight: 1.05, color: '#ffffff',
               margin: '0 0 2rem 0', letterSpacing: '-0.02em',
@@ -318,8 +318,8 @@ export default function AboutPage() {
             What We Believe
           </p>
           <h2 style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontWeight: 900, fontStyle: 'italic',
+            fontFamily: "'Hepta Slab', Georgia, serif",
+            fontWeight: 900, 
             fontSize: 'clamp(3rem, 6vw, 6rem)',
             lineHeight: 0.92, color: '#111F2A',
             margin: 0, letterSpacing: '-0.02em',
@@ -341,8 +341,8 @@ export default function AboutPage() {
               }}
             >
               <h3 style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontWeight: 700, fontStyle: 'italic',
+                fontFamily: "'Hepta Slab', Georgia, serif",
+                fontWeight: 700, 
                 fontSize: '1.35rem', color: '#111F2A',
                 margin: '0 0 0.875rem 0', lineHeight: 1.2,
               }}>
@@ -380,8 +380,8 @@ export default function AboutPage() {
             How We Work
           </p>
           <h2 style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontWeight: 900, fontStyle: 'italic',
+            fontFamily: "'Hepta Slab', Georgia, serif",
+            fontWeight: 900, 
             fontSize: 'clamp(3rem, 6vw, 6rem)',
             lineHeight: 0.92, color: '#ffffff',
             margin: 0, letterSpacing: '-0.02em',
@@ -407,12 +407,12 @@ export default function AboutPage() {
               }}
             >
               <span style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontStyle: 'italic', fontSize: '1.1rem', color: '#E85D26',
+                fontFamily: "'Hepta Slab', Georgia, serif",
+                 fontSize: '1.1rem', color: '#E85D26',
               }}>{p.num}</span>
               <h3 style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontWeight: 700, fontStyle: 'italic',
+                fontFamily: "'Hepta Slab', Georgia, serif",
+                fontWeight: 700, 
                 fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)',
                 color: '#ffffff', margin: 0, lineHeight: 1.1,
               }}>{p.title}</h3>
@@ -446,8 +446,8 @@ export default function AboutPage() {
             The People
           </p>
           <h2 style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontWeight: 900, fontStyle: 'italic',
+            fontFamily: "'Hepta Slab', Georgia, serif",
+            fontWeight: 900, 
             fontSize: 'clamp(3rem, 6vw, 6rem)',
             lineHeight: 0.92, color: '#111F2A',
             margin: 0, letterSpacing: '-0.02em',
@@ -468,8 +468,8 @@ export default function AboutPage() {
                 />
               </div>
               <h3 style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontWeight: 700, fontStyle: 'italic',
+                fontFamily: "'Hepta Slab', Georgia, serif",
+                fontWeight: 700, 
                 fontSize: '1.35rem', color: '#111F2A',
                 margin: '0 0 0.25rem 0',
               }}>{member.name}</h3>
@@ -517,8 +517,8 @@ export default function AboutPage() {
         }}
       >
         <h2 className="reveal-up" style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontWeight: 900, fontStyle: 'italic',
+          fontFamily: "'Hepta Slab', Georgia, serif",
+          fontWeight: 900, 
           fontSize: 'clamp(3.5rem, 9vw, 10rem)',
           lineHeight: 0.9, color: '#ffffff',
           margin: '0 0 3rem 0', letterSpacing: '-0.03em',

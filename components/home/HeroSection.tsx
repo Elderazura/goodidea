@@ -148,9 +148,9 @@ function HeroCard({ card }: { card: Card }) {
           Goodidea Studio
         </p>
         <p style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 700,
-          fontStyle: 'italic',
+          
           fontSize: '1.15rem',
           color: '#ffffff',
           margin: 0,
@@ -294,9 +294,9 @@ export default function HeroSection() {
 
         {/* Headline */}
         <div style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(4.5rem, 9vw, 11rem)',
           lineHeight: 0.9,
           letterSpacing: '-0.03em',
@@ -313,9 +313,9 @@ export default function HeroSection() {
                 words={['Brands', 'Identities', 'Stories', 'Legacies']}
                 interval={3200}
                 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Hepta Slab', Georgia, serif",
                   fontWeight: 900,
-                  fontStyle: 'italic',
+                  
                   fontSize: 'clamp(4.5rem, 9vw, 11rem)',
                   lineHeight: 0.9,
                   letterSpacing: '-0.03em',
@@ -387,9 +387,9 @@ export default function HeroSection() {
           ].map(({ value, label }) => (
             <div key={label}>
               <div style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "'Hepta Slab', Georgia, serif",
                 fontWeight: 900,
-                fontStyle: 'italic',
+                
                 fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
                 color: '#E85D26',
                 lineHeight: 1,

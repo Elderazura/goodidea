@@ -38,9 +38,9 @@ export default function InsightsSection() {
             Insights
           </p>
           <h2 style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Hepta Slab', Georgia, serif",
             fontWeight: 900,
-            fontStyle: 'italic',
+            
             fontSize: 'clamp(3rem, 6vw, 6rem)',
             lineHeight: 0.92,
             color: '#111F2A',
@@ -97,9 +97,9 @@ export default function InsightsSection() {
               {insight.category}
             </p>
             <h3 style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 700,
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(1.25rem, 2vw, 1.75rem)',
               color: '#111F2A',
               lineHeight: 1.2,

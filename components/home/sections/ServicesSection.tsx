@@ -44,9 +44,9 @@ export default function ServicesSection() {
         <div>
           <p style={P}>What We Do</p>
           <h2 style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Hepta Slab', Georgia, serif",
             fontWeight: 900,
-            fontStyle: 'italic',
+            
             fontSize: 'clamp(3rem, 7vw, 7rem)',
             lineHeight: 0.92,
             color: '#ffffff',
@@ -90,7 +90,7 @@ export default function ServicesSection() {
               ...(i === SERVICES.length - 1 ? { borderBottom: '1px solid rgba(255,255,255,0.1)' } : {}),
             }}
           >
-            <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: 'italic', fontSize: '1rem', color: '#E85D26' }}>
+            <span style={{ fontFamily: "'Hepta Slab', Georgia, serif",  fontSize: '1rem', color: '#E85D26' }}>
               {s.num}
             </span>
             <span style={{

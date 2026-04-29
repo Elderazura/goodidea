@@ -47,9 +47,9 @@ export default function ContactPage() {
         </p>
         <h1
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Hepta Slab', Georgia, serif",
             fontWeight: 900,
-            fontStyle: 'italic',
+            
             fontSize: 'clamp(3rem, 7vw, 7rem)',
             lineHeight: 1.0,
             color: '#111F2A',

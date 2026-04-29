@@ -18,9 +18,9 @@ export default function CTABlock() {
       {/* Left: headline */}
       <h2
         style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(3rem, 6vw, 6rem)',
           lineHeight: 1.05,
           color: '#F8F5F0',

@@ -221,9 +221,9 @@ export default function WorksPage() {
 
         <h1
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Hepta Slab', Georgia, serif",
             fontWeight: 900,
-            fontStyle: 'italic',
+            
             fontSize: 'clamp(3.5rem, 9vw, 9rem)',
             lineHeight: 0.95,
             color: '#111F2A',
@@ -242,9 +242,9 @@ export default function WorksPage() {
                 words={['built.', 'created.', 'crafted.', 'shaped.']}
                 interval={3000}
                 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Hepta Slab', Georgia, serif",
                   fontWeight: 900,
-                  fontStyle: 'italic',
+                  
                   fontSize: 'clamp(3.5rem, 9vw, 9rem)',
                   lineHeight: 0.95,
                   letterSpacing: '-0.02em',
@@ -301,9 +301,9 @@ export default function WorksPage() {
               <span
                 className="stat-number"
                 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Hepta Slab', Georgia, serif",
                   fontWeight: 700,
-                  fontStyle: 'italic',
+                  
                   fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
                   color: '#111F2A',
                   lineHeight: 1,
@@ -445,9 +445,9 @@ export default function WorksPage() {
           </p>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 900,
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(2.5rem, 5vw, 5rem)',
               color: '#F8F5F0',
               margin: 0,
@@ -532,9 +532,9 @@ export default function WorksPage() {
               </span>
               <h3
                 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Hepta Slab', Georgia, serif",
                   fontWeight: 700,
-                  fontStyle: 'italic',
+                  
                   fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
                   color: '#111F2A',
                   margin: '0 0 0.75rem 0',
@@ -597,9 +597,9 @@ export default function WorksPage() {
             </span>
             <h3
               style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "'Hepta Slab', Georgia, serif",
                 fontWeight: 700,
-                fontStyle: 'italic',
+                
                 fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
                 color: '#111F2A',
                 margin: '0 0 0.75rem 0',
@@ -656,9 +656,9 @@ export default function WorksPage() {
       >
         <h2
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Hepta Slab', Georgia, serif",
             fontWeight: 900,
-            fontStyle: 'italic',
+            
             fontSize: 'clamp(2rem, 5vw, 4.5rem)',
             color: '#111F2A',
             margin: 0,

@@ -32,9 +32,9 @@ export default function CTASection() {
       <h2
         className="reveal-up"
         style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Hepta Slab', Georgia, serif",
           fontWeight: 900,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(4rem, 10vw, 12rem)',
           lineHeight: 0.88,
           color: '#ffffff',

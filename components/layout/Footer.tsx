@@ -20,7 +20,7 @@ export default function Footer() {
           <p
             className="font-serif leading-none"
             style={{
-              fontStyle: 'italic',
+              
               fontSize: 'clamp(3rem, 6vw, 7rem)',
               letterSpacing: '-0.02em',
             }}
