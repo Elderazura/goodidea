@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
+import AnimatedTextCycle from '@/components/ui/animated-text-cycle'
 
 /* ─── Image + metadata per card ─────────────────────────────────────────── */
 interface Card {
@@ -305,8 +306,23 @@ export default function HeroSection() {
           <div style={{ overflow: 'hidden' }}>
             <div className="hero-line-inner" style={{ transform: 'translateY(115%)' }}>We Build</div>
           </div>
-          <div style={{ overflow: 'hidden' }}>
-            <div className="hero-line-inner" style={{ transform: 'translateY(115%)' }}>Brands</div>
+          {/* Animated cycling word — starts after GSAP reveal */}
+          <div style={{ overflow: 'visible', display: 'block' }}>
+            <div className="hero-line-inner" style={{ transform: 'translateY(115%)' }}>
+              <AnimatedTextCycle
+                words={['Brands', 'Identities', 'Stories', 'Legacies']}
+                interval={3200}
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontWeight: 900,
+                  fontStyle: 'italic',
+                  fontSize: 'clamp(4.5rem, 9vw, 11rem)',
+                  lineHeight: 0.9,
+                  letterSpacing: '-0.03em',
+                  color: '#E85D26',
+                }}
+              />
+            </div>
           </div>
           <div style={{ overflow: 'hidden' }}>
             <div className="hero-line-inner" style={{ transform: 'translateY(115%)' }}>

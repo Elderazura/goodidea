@@ -7,33 +7,35 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from '@/components/ui/Button'
 import Marquee from '@/components/ui/Marquee'
+import AnimatedTextCycle from '@/components/ui/animated-text-cycle'
+import ClientsMarquee from '@/components/ui/ClientsMarquee'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const TEAM = [
   {
-    name: 'Faris Al-Rashid',
+    name: 'Sara Al-Mansouri',
     role: 'Founder & Creative Director',
-    bio: 'Over 15 years building brands across the Gulf. Formerly at Interbrand Dubai.',
-    image: '/images/team/team-a.webp',
+    bio: 'Over 15 years building brands across the Gulf. Strategy-first, aesthetics always.',
+    image: '/images/team/team-a.jpg',
   },
   {
-    name: 'Sara Al-Mansouri',
+    name: 'Layla Nasser',
     role: 'Head of Strategy',
     bio: 'Brand strategist with deep roots in MENA consumer behaviour and positioning.',
-    image: '/images/team/team-b.webp',
+    image: '/images/team/team-b.jpg',
+  },
+  {
+    name: 'Faris Al-Rashid',
+    role: 'Creative Director',
+    bio: 'Identity systems, typography, and visual storytelling. Formerly at Interbrand Dubai.',
+    image: '/images/team/team-c.jpg',
   },
   {
     name: 'Omar Khalil',
     role: 'Senior Designer',
-    bio: 'Identity systems, typography, and visual storytelling are his language.',
-    image: '/images/team/team-c.webp',
-  },
-  {
-    name: 'Layla Nasser',
-    role: 'Content & Verbal Identity',
     bio: 'Words that carry weight — naming, messaging, and tone-of-voice architecture.',
-    image: '/images/team/team-d.webp',
+    image: '/images/team/team-d.jpg',
   },
 ]
 
@@ -164,7 +166,22 @@ export default function AboutPage() {
           margin: 'auto 0',
         }}>
           <div style={{ overflow: 'hidden' }}><div className="hero-line" style={{ transform: 'translateY(110%)' }}>We are</div></div>
-          <div style={{ overflow: 'hidden' }}><div className="hero-line" style={{ transform: 'translateY(110%)' }}>a brand</div></div>
+          <div style={{ overflow: 'hidden' }}><div className="hero-line" style={{ transform: 'translateY(110%)' }}>
+            a{' '}
+            <AnimatedTextCycle
+              words={['brand', 'creative', 'strategy', 'design']}
+              interval={3000}
+              style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontWeight: 900,
+                fontStyle: 'italic',
+                fontSize: 'clamp(5rem, 12vw, 15rem)',
+                lineHeight: 0.88,
+                letterSpacing: '-0.04em',
+                color: '#E85D26',
+              }}
+            />
+          </div></div>
           <div style={{ overflow: 'hidden' }}>
             <div className="hero-line" style={{ transform: 'translateY(110%)' }}>
               studio<span style={{ color: '#E85D26' }}>.</span>
@@ -227,7 +244,7 @@ export default function AboutPage() {
           <div className="reveal-up" style={{ position: 'relative' }}>
             <div style={{ aspectRatio: '3/4', overflow: 'hidden' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/team/team-b.webp" alt="Goodidea Studio" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/team/studio-workspace.jpg" alt="Goodidea Studio" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
             </div>
             {/* Accent line */}
             <div style={{
@@ -471,6 +488,9 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      {/* ── Client Names Marquee ────────────────────────────── */}
+      <ClientsMarquee theme="light" label="Brands We've Built" />
 
       {/* ── Marquee break ─────────────────────────────────────── */}
       <div style={{ borderTop: '1px solid rgba(17,31,42,0.12)' }}>

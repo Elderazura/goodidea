@@ -5,6 +5,7 @@ import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from '@/components/ui/Button'
+import AnimatedTextCycle from '@/components/ui/animated-text-cycle'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -403,11 +404,24 @@ export default function ServicesPage() {
           }}
         >
           <div style={{ overflow: 'hidden' }}>
-            <div className="hero-line" style={{ transform: 'translateY(110%)' }}>We build</div>
+            <div className="hero-line" style={{ transform: 'translateY(110%)' }}>We craft</div>
           </div>
           <div style={{ overflow: 'hidden' }}>
             <div className="hero-line" style={{ transform: 'translateY(110%)' }}>
-              brands<span style={{ color: '#E85D26' }}>.</span>
+              <AnimatedTextCycle
+                words={['identities', 'strategies', 'names', 'stories', 'brands']}
+                interval={2800}
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontWeight: 900,
+                  fontStyle: 'italic',
+                  fontSize: 'clamp(5rem, 13vw, 16rem)',
+                  lineHeight: 0.88,
+                  letterSpacing: '-0.04em',
+                  color: '#E85D26',
+                }}
+              />
+              <span style={{ color: '#E85D26' }}>.</span>
             </div>
           </div>
         </div>

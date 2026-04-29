@@ -5,6 +5,7 @@ import Link from 'next/link'
 import WorkCard from '@/components/works/WorkCard'
 import { works } from '@/data/works'
 import { insights } from '@/data/insights'
+import AnimatedTextCycle from '@/components/ui/animated-text-cycle'
 
 const CATEGORIES = ['All', 'Branding', 'Strategy', 'Social Media']
 
@@ -230,11 +231,28 @@ export default function WorksPage() {
             letterSpacing: '-0.02em',
           }}
         >
-          {['What', "we've", 'built.'].map((word, i) => (
+          {['What', "we've"].map((word, i) => (
             <span key={i} className="hero-line-wrap" style={{ display: 'block' }}>
               <span className="hero-line-inner">{word}</span>
             </span>
           ))}
+          <span className="hero-line-wrap" style={{ display: 'block' }}>
+            <span className="hero-line-inner">
+              <AnimatedTextCycle
+                words={['built.', 'created.', 'crafted.', 'shaped.']}
+                interval={3000}
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontWeight: 900,
+                  fontStyle: 'italic',
+                  fontSize: 'clamp(3.5rem, 9vw, 9rem)',
+                  lineHeight: 0.95,
+                  letterSpacing: '-0.02em',
+                  color: '#E85D26',
+                }}
+              />
+            </span>
+          </span>
         </h1>
 
         <p

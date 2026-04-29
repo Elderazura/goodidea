@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Marquee from '@/components/ui/Marquee'
+import ClientsMarquee        from '@/components/ui/ClientsMarquee'
 import ServicesSection       from './sections/ServicesSection'
 import WorksSection          from './sections/WorksSection'
 import FeaturedScrollSection from './sections/FeaturedScrollSection'
@@ -19,6 +20,7 @@ const SECTION_COLORS = [
   { id: 'section-marquee',   bg: '#F8F5F0' },
   { id: 'section-services',  bg: '#111F2A' },
   { id: 'section-works',     bg: '#F8F5F0' },
+  { id: 'section-clients',   bg: '#F8F5F0' },
   { id: 'section-featured',  bg: '#F8F5F0' },
   { id: 'section-about',     bg: '#0D1822' },
   { id: 'section-pricing',   bg: '#F8F5F0' },
@@ -124,6 +126,9 @@ export default function HomeBody() {
 
       <ServicesSection />
       <WorksSection />
+      <div id="section-clients">
+        <ClientsMarquee theme="light" label="Brands We've Built" />
+      </div>
       <FeaturedScrollSection />
       <AboutSection />
       <PricingSection />
