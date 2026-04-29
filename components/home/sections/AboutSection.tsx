@@ -82,7 +82,7 @@ export default function AboutSection() {
           <div style={{ aspectRatio: '4/5', overflow: 'hidden' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/team/studio-workspace.jpg"
+              src="/images/team/studio.jpeg"
               alt="Goodidea studio"
               loading="lazy"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}

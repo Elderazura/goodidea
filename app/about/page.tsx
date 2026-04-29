@@ -17,25 +17,25 @@ const TEAM = [
     name: 'Sara Al-Mansouri',
     role: 'Founder & Creative Director',
     bio: 'Over 15 years building brands across the Gulf. Strategy-first, aesthetics always.',
-    image: '/images/team/team-a.jpg',
+    image: '/images/team/team_a.jpeg',
   },
   {
     name: 'Layla Nasser',
     role: 'Head of Strategy',
     bio: 'Brand strategist with deep roots in MENA consumer behaviour and positioning.',
-    image: '/images/team/team-b.jpg',
+    image: '/images/team/team_b.jpeg',
   },
   {
     name: 'Faris Al-Rashid',
     role: 'Creative Director',
     bio: 'Identity systems, typography, and visual storytelling. Formerly at Interbrand Dubai.',
-    image: '/images/team/team-c.jpg',
+    image: '/images/team/team_c.jpeg',
   },
   {
     name: 'Omar Khalil',
     role: 'Senior Designer',
     bio: 'Words that carry weight — naming, messaging, and tone-of-voice architecture.',
-    image: '/images/team/team-d.jpg',
+    image: '/images/team/team_d.jpeg',
   },
 ]
 
@@ -244,7 +244,7 @@ export default function AboutPage() {
           <div className="reveal-up" style={{ position: 'relative' }}>
             <div style={{ aspectRatio: '3/4', overflow: 'hidden' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/team/studio-workspace.jpg" alt="Goodidea Studio" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+              <img src="/images/team/studio.jpeg" alt="Goodidea Studio" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
             </div>
             {/* Accent line */}
             <div style={{
