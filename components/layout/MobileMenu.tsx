@@ -2,79 +2,170 @@
 
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
-import { navLinks, socialLinks } from '@/data/site'
+import { navLinks } from '@/data/site'
 import AnimatedLogo from '@/components/ui/AnimatedLogo'
-import { InstagramIcon, FacebookIcon, LinkedInIcon } from '@/components/ui/SocialIcons'
-
-const iconMap = { instagram: InstagramIcon, facebook: FacebookIcon, linkedin: LinkedInIcon }
 
 interface MobileMenuProps {
   isOpen: boolean
   onClose: () => void
+  pathname: string
 }
 
-export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProps) {
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, x: '100%' }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: '100%' }}
-          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-[100] bg-paper flex flex-col p-6"
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          initial={{ x: '100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '100%' }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 200,
+            backgroundColor: '#F8F5F0',
+            display: 'flex',
+            flexDirection: 'column',
+            overflowY: 'auto',
+          }}
         >
-          {/* Top row */}
-          <div className="flex items-center justify-between mb-12">
-            <Link href="/" onClick={onClose} className="w-32">
-              <AnimatedLogo className="w-full h-auto" />
+          {/* ── Top bar ── */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0 1.5rem',
+            height: '64px',
+            flexShrink: 0,
+            borderBottom: '1px solid rgba(17,31,42,0.08)',
+          }}>
+            <Link href="/" onClick={onClose} aria-label="Goodidea home">
+              <AnimatedLogo style={{ height: '22px', width: 'auto' }} />
             </Link>
-            <button onClick={onClose} aria-label="Close menu" className="p-2">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                <path d="M1 1l20 20M21 1L1 21" stroke="#111f2a" strokeWidth="2" strokeLinecap="round" />
+
+            <button
+              onClick={onClose}
+              aria-label="Close menu"
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '0.5rem',
+                marginRight: '-0.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              {/* X icon */}
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                <path d="M2 2l16 16M18 2L2 18" stroke="#111F2A" strokeWidth="1.75" strokeLinecap="round" />
               </svg>
             </button>
           </div>
 
-          {/* Nav links */}
-          <nav aria-label="Mobile navigation" className="flex flex-col gap-5 flex-1">
-            {navLinks.map((link, i) => (
-              <motion.div
-                key={link.href}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 + 0.1, ease: [0.16, 1, 0.3, 1], duration: 0.5 }}
-              >
-                <Link
-                  href={link.href}
-                  onClick={onClose}
-                  className="font-sans-bold text-headline text-ink hover:text-ink/40 transition-colors duration-300 block"
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
-
-          {/* Social links */}
-          <ul className="flex gap-6 pt-8 border-t border-ink/10">
-            {socialLinks.map(link => {
-              const Icon = iconMap[link.icon as keyof typeof iconMap]
+          {/* ── Nav links ── */}
+          <nav
+            aria-label="Mobile navigation"
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              padding: '3rem 1.5rem',
+              gap: '0.25rem',
+            }}
+          >
+            {navLinks.map((link, i) => {
+              const isActive = pathname === link.href
               return (
-                <li key={link.href}>
-                  <a
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{
+                    delay: i * 0.06,
+                    duration: 0.4,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  <Link
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={link.label}
-                    className="text-ink hover:text-ink/50 transition-colors duration-300"
+                    onClick={onClose}
+                    style={{
+                      display: 'block',
+                      fontFamily: "'Cormorant Garamond', Georgia, serif",
+                      fontStyle: 'italic',
+                      fontWeight: 700,
+                      fontSize: 'clamp(2.75rem, 10vw, 4rem)',
+                      lineHeight: 1.1,
+                      color: isActive ? '#E85D26' : '#111F2A',
+                      textDecoration: 'none',
+                      padding: '0.4rem 0',
+                      transition: 'color 0.2s ease',
+                      borderBottom: '1px solid rgba(17,31,42,0.08)',
+                    }}
                   >
-                    {Icon && <Icon width={22} height={22} />}
-                  </a>
-                </li>
+                    {link.label}
+                  </Link>
+                </motion.div>
               )
             })}
-          </ul>
+          </nav>
+
+          {/* ── Footer strip ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: navLinks.length * 0.06 + 0.1, duration: 0.35 }}
+            style={{
+              flexShrink: 0,
+              padding: '1.5rem',
+              borderTop: '1px solid rgba(17,31,42,0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '1rem',
+              flexWrap: 'wrap',
+            }}
+          >
+            <a
+              href="mailto:dubaiis@goodidea.ae"
+              style={{
+                fontFamily: "'Gotham Book', 'Helvetica Neue', sans-serif",
+                fontSize: '0.8rem',
+                color: 'rgba(17,31,42,0.5)',
+                textDecoration: 'none',
+              }}
+            >
+              dubaiis@goodidea.ae
+            </a>
+
+            <Link
+              href="/contact"
+              onClick={onClose}
+              style={{
+                fontFamily: "'Gotham Book', 'Helvetica Neue', sans-serif",
+                fontSize: '0.7rem',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: '#111F2A',
+                border: '1px solid rgba(17,31,42,0.5)',
+                padding: '0.65rem 1.25rem',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Start Project →
+            </Link>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
