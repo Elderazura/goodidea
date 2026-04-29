@@ -167,47 +167,30 @@ export default function WorkCard({ work, featured = false, index }: WorkCardProp
 
       {/* Metadata + title — below image for default variant */}
       {!featured && (
-        <div style={{ marginTop: '1rem' }}>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginBottom: '0.375rem',
-            }}
-          >
-            <span
-              style={{
-                fontFamily: 'Gotham Book, sans-serif',
-                fontSize: '0.7rem',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: '#E85D26',
-              }}
-            >
-              {work.category}
-            </span>
-            <span
-              style={{
-                fontFamily: 'Gotham Book, sans-serif',
-                fontSize: '0.7rem',
-                color: 'rgba(17,31,42,0.6)',
-              }}
-            >
-              {work.year}
-            </span>
-          </div>
+        <div style={{ marginTop: '0.875rem' }}>
           <h3
             style={{
-              fontFamily: 'Gotham Bold, sans-serif',
-              fontSize: '1.125rem',
-              color: '#111F2A',
-              margin: 0,
+              fontFamily: "'Hepta Slab', Georgia, serif",
               fontWeight: 700,
+              fontSize: 'clamp(1.1rem, 1.6vw, 1.35rem)',
+              color: '#111F2A',
+              margin: '0 0 0.3rem 0',
+              lineHeight: 1.2,
             }}
           >
             {work.title}
           </h3>
+          <p
+            style={{
+              fontFamily: 'Gotham Book, sans-serif',
+              fontSize: '0.8rem',
+              color: 'rgba(17,31,42,0.55)',
+              margin: 0,
+              lineHeight: 1.5,
+            }}
+          >
+            {work.tagline}
+          </p>
         </div>
       )}
 
