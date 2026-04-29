@@ -362,3 +362,89 @@ body::before {
   75%  { transform: translate(-1px, -1px); }
   100% { transform: translate(1px, 1px); }
 }
+
+/* ── Mobile Overflow Prevention ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Prevent any element from breaking the viewport width */
+@media (max-width: 767px) {
+  /* General safeguard */
+  section, article, div, header, footer, main, nav {
+    max-width: 100vw;
+  }
+
+  /* Clamp large display type on mobile so nothing overflows */
+  h1, h2 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Home hero section: keep text from overflowing */
+  .hero-section h1 {
+    font-size: clamp(3rem, 14vw, 6rem) !important;
+  }
+
+  /* Works page hero */
+  .works-hero-title {
+    font-size: clamp(3rem, 13vw, 5rem) !important;
+  }
+
+  /* Marquee: clip overflow */
+  .marquee-track, .marquee-inner {
+    overflow: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  /* Hero sub-text line that may be wide */
+  .hero-sub-line {
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem) !important;
+    max-width: 100% !important;
+  }
+
+  /* Services page: stat numbers */
+  .stat-number {
+    font-size: clamp(3rem, 16vw, 8rem) !important;
+  }
+
+  /* Work detail hero title */
+  .work-detail-hero-title {
+    font-size: clamp(4rem, 16vw, 8rem) !important;
+  }
+
+  /* Padding: prevent sections from having too-wide internal content */
+  [style*="padding-left: clamp"] {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Gallery grids on mobile: 1 column */
+  .gallery-grid-2col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Brand story section images: single column on mobile */
+  .brand-story-img-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Pricing grid */
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Featured scroll section title */
+  .featured-title {
+    font-size: clamp(2rem, 10vw, 4rem) !important;
+    word-break: break-word;
+  }
+
+  /* Contact modal */
+  .contact-modal-inner {
+    width: calc(100vw - 2rem) !important;
+    max-width: 100% !important;
+    padding: 2rem 1.5rem !important;
+  }
+}

@@ -49,6 +49,33 @@ export default function WorkDetailClient({ work, prev, next, otherWorks }: WorkD
         )
       }
 
+      // Brand story section labels
+      gsap.utils.toArray<HTMLElement>('.brand-story-label').forEach(el => {
+        gsap.from(el, {
+          opacity: 0,
+          x: -30,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.brand-story-body').forEach(el => {
+        gsap.from(el, {
+          opacity: 0,
+          y: 20,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 87%' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.brand-story-img').forEach(el => {
+        gsap.fromTo(el,
+          { scale: 1.06, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1, ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 88%' } }
+        )
+      })
+
       // Gallery images scroll-triggered
       gsap.from('.gallery-img', {
         opacity: 0,
@@ -511,6 +538,101 @@ export default function WorkDetailClient({ work, prev, next, otherWorks }: WorkD
         </section>
       )}
 
+      {/* ─── Brand Story Sections ─── */}
+      {work.brandStory && work.brandStory.length > 0 && (
+        <section
+          style={{
+            backgroundColor: '#0D1822',
+            padding: 'clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5%, 5rem)',
+          }}
+        >
+          {work.brandStory.map((section, idx) => (
+            <div
+              key={idx}
+              style={{
+                borderTop: '1px solid rgba(255,255,255,0.1)',
+                paddingTop: 'clamp(3rem, 6vw, 5rem)',
+                paddingBottom: 'clamp(3rem, 6vw, 5rem)',
+              }}
+            >
+              {/* Label + body row */}
+              <div
+                className="brand-story-row"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 'clamp(2rem, 5vw, 6rem)',
+                  alignItems: 'start',
+                  marginBottom: section.images && section.images.length > 0 ? 'clamp(2rem, 4vw, 3.5rem)' : 0,
+                }}
+              >
+                {/* Section label — left */}
+                <h2
+                  className="brand-story-label"
+                  style={{
+                    fontFamily: "'Hepta Slab', Georgia, serif",
+                    fontWeight: 700,
+                    fontSize: 'clamp(2.2rem, 4.5vw, 4rem)',
+                    lineHeight: 1.05,
+                    color: '#ffffff',
+                    margin: 0,
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  {section.label}
+                </h2>
+
+                {/* Body text — right */}
+                <p
+                  className="brand-story-body"
+                  style={{
+                    fontFamily: "'Gotham Book', 'Helvetica Neue', sans-serif",
+                    fontSize: 'clamp(0.95rem, 1.4vw, 1.15rem)',
+                    lineHeight: 1.8,
+                    color: 'rgba(255,255,255,0.65)',
+                    margin: 0,
+                    paddingTop: '0.4rem',
+                  }}
+                >
+                  {section.body}
+                </p>
+              </div>
+
+              {/* Images below the text row */}
+              {section.images && section.images.length > 0 && (
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: section.images.length === 1 ? '1fr' : '1fr 1fr',
+                    gap: '1rem',
+                  }}
+                >
+                  {section.images.map((img, iIdx) => (
+                    <div
+                      key={iIdx}
+                      className="brand-story-img"
+                      style={{
+                        position: 'relative',
+                        aspectRatio: section.images!.length === 1 ? '16/7' : '3/2',
+                        overflow: 'hidden',
+                        backgroundColor: 'rgba(255,255,255,0.04)',
+                      }}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={img}
+                        alt={`${work.title} — ${section.label}`}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </section>
+      )}
+
       {/* ─── More Work Cross-Section ─── */}
       {otherWorks.length > 0 && (
         <section
@@ -640,6 +762,8 @@ export default function WorkDetailClient({ work, prev, next, otherWorks }: WorkD
             .work-detail-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
             .work-detail-grid > div:last-child { border-left: none !important; padding-left: 0 !important; border-top: 1px solid rgba(17,31,42,0.2); padding-top: 2rem; }
             .more-work-grid { grid-template-columns: 1fr !important; }
+            .brand-story-row { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+            .brand-story-row h2 { font-size: clamp(1.8rem, 7vw, 2.4rem) !important; }
           }
           .more-work-card:hover .more-work-poster { transform: scale(1.05); }
         `
