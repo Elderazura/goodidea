@@ -113,7 +113,7 @@ export default function HomeBody() {
   }, [])
 
   return (
-    <div ref={wrapRef} style={{ backgroundColor: '#111F2A' }}>
+    <div ref={wrapRef} style={{ backgroundColor: '#F8F5F0' }}>
 
       <div id="section-marquee">
         <Marquee

@@ -229,24 +229,9 @@
   .hdr-hamburger    { display: none !important; }
 }
 
-/* ── Hero: hide image columns on mobile, show horizontal strip instead ── */
-@media (max-width: 767px) {
-  .hero-section {
-    grid-template-columns: 1fr !important;
-    min-height: auto !important;
-    padding-bottom: 0 !important;
-  }
-  .hero-columns {
-    display: none !important;
-  }
-  .hero-mobile-strip {
-    display: block !important;
-  }
-}
-@media (min-width: 768px) {
-  .hero-mobile-strip {
-    display: none !important;
-  }
+/* ── Hero: full-bleed on all sizes ── */
+.hero-section {
+  min-height: 100dvh;
 }
 
 /* ── About/Studio page mobile ── */
