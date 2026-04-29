@@ -219,6 +219,36 @@
   .accent { color: var(--accent); }
 }
 
+/* ── Header: hamburger vs desktop nav responsive ── */
+/* These override the dangerouslySetInnerHTML style in Header.tsx for production reliability */
+.hdr-desktop-nav { display: none !important; }
+.hdr-hamburger    { display: flex !important; }
+
+@media (min-width: 768px) {
+  .hdr-desktop-nav { display: flex !important; }
+  .hdr-hamburger    { display: none !important; }
+}
+
+/* ── Hero: hide image columns on mobile, show horizontal strip instead ── */
+@media (max-width: 767px) {
+  .hero-section {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    padding-bottom: 0 !important;
+  }
+  .hero-columns {
+    display: none !important;
+  }
+  .hero-mobile-strip {
+    display: block !important;
+  }
+}
+@media (min-width: 768px) {
+  .hero-mobile-strip {
+    display: none !important;
+  }
+}
+
 /* ── Swiper Overrides ── */
 :root {
   --swiper-theme-color: var(--ink);

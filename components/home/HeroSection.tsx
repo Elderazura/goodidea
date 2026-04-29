@@ -472,23 +472,68 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Mobile overrides */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @media (max-width: 768px) {
-          .hero-section {
-            grid-template-columns: 1fr !important;
-            grid-template-rows: auto 1fr;
+      {/* ── Mobile: horizontal scrolling image strip ──────────── */}
+      {/* Hidden on desktop via globals.css .hero-mobile-strip { display: none } */}
+      <div
+        className="hero-mobile-strip"
+        style={{
+          gridColumn: '1 / -1',
+          overflow: 'hidden',
+          paddingBottom: 'clamp(2rem, 6vw, 3rem)',
+        }}
+      >
+        {/* Auto-scroll track — duplicated for seamless loop */}
+        <div style={{
+          display: 'flex',
+          gap: '10px',
+          width: 'max-content',
+          animation: 'heroStripScroll 18s linear infinite',
+        }}>
+          {[
+            '/images/works/woodo-3.webp',
+            '/images/works/orego-cover.webp',
+            '/images/works/files-3.webp',
+            '/images/works/meraki-1.jpg',
+            '/images/works/sheisfit-5.jpg',
+            '/images/works/qawafil-1.webp',
+            '/images/works/woodo-7.webp',
+            '/images/works/orego-4.webp',
+            // Duplicate for seamless loop
+            '/images/works/woodo-3.webp',
+            '/images/works/orego-cover.webp',
+            '/images/works/files-3.webp',
+            '/images/works/meraki-1.jpg',
+            '/images/works/sheisfit-5.jpg',
+            '/images/works/qawafil-1.webp',
+            '/images/works/woodo-7.webp',
+            '/images/works/orego-4.webp',
+          ].map((src, i) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={i}
+              src={src}
+              alt=""
+              aria-hidden="true"
+              style={{
+                height: '220px',
+                width: '160px',
+                objectFit: 'cover',
+                flexShrink: 0,
+                display: 'block',
+              }}
+            />
+          ))}
+        </div>
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes heroStripScroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
           }
-          .hero-columns {
-            height: 45dvh !important;
-            grid-template-columns: 1fr 1fr !important;
-            padding: 0 !important;
+          @media (prefers-reduced-motion: reduce) {
+            .hero-mobile-strip [style*="animation"] { animation: none !important; }
           }
-          .hero-columns > div:last-child {
-            display: none;
-          }
-        }
-      ` }} />
+        ` }} />
+      </div>
     </section>
   )
 }
