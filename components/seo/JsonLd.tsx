@@ -9,7 +9,7 @@ export default function JsonLd() {
     name: 'Goodidea',
     legalName: 'Goodidea FZ LLC',
     url: 'https://goodidea.ae',
-    logo: 'https://goodidea.ae/images/goodidea-logo.png',
+    logo: 'https://goodidea.ae/images/goodidea-logo.svg',
     description:
       'Dubai-based creative and branding agency. We build brands that mean something through strategy, identity, naming, and design.',
     foundingDate: '2018',
