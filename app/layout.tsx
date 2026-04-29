@@ -5,6 +5,8 @@ import Footer from '@/components/layout/Footer'
 import InstagramFeed from '@/components/home/InstagramFeed'
 import CustomCursor from '@/components/ui/CustomCursor'
 import JsonLd from '@/components/seo/JsonLd'
+import ContactModal from '@/components/ui/ContactModal'
+import { ContactModalProvider } from '@/context/ContactModalContext'
 import Script from 'next/script'
 import { siteConfig } from '@/data/site'
 
@@ -112,12 +114,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <Header />
-        <JsonLd />
-        <main className="pt-16 md:pt-20">{children}</main>
-        <InstagramFeed />
-        <Footer />
-        <CustomCursor />
+        <ContactModalProvider>
+          <Header />
+          <JsonLd />
+          <main className="pt-16 md:pt-20">{children}</main>
+          <InstagramFeed />
+          <Footer />
+          <CustomCursor />
+          <ContactModal />
+        </ContactModalProvider>
 
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analyticsId}`}
@@ -132,6 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </body>
+
     </html>
   )
 }

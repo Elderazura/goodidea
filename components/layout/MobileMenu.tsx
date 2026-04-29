@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import { navLinks } from '@/data/site'
+import StartProjectButton from '@/components/ui/StartProjectButton'
 
 interface MobileMenuProps {
   isOpen: boolean
@@ -164,24 +165,12 @@ export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProp
                 gap: '1rem',
               }}
             >
-              <Link
-                href="/contact"
-                onClick={onClose}
-                style={{
-                  display: 'block',
-                  textAlign: 'center',
-                  fontFamily: "'Gotham Book', 'Helvetica Neue', sans-serif",
-                  fontSize: '0.7rem',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: '#F8F5F0',
-                  backgroundColor: '#111F2A',
-                  padding: '0.85rem 1.25rem',
-                  textDecoration: 'none',
-                }}
+              <StartProjectButton
+                variant="dark"
+                style={{ width: '100%', textAlign: 'center' }}
               >
                 Start a Project →
-              </Link>
+              </StartProjectButton>
 
               <a
                 href="mailto:dubaiis@goodidea.ae"

@@ -126,6 +126,7 @@ export default function AboutPage() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
         id="about-hero"
+        className="page-hero-section"
         style={{
           background: 'transparent',
           minHeight: '100dvh',
@@ -147,7 +148,7 @@ export default function AboutPage() {
           color: 'rgba(17,31,42,0.5)',
           opacity: 0,
         }}>
-          About Goodidea — Dubai
+          The Studio — Goodidea Dubai
         </p>
 
         {/* Center: giant headline */}
@@ -226,7 +227,7 @@ export default function AboutPage() {
           <div className="reveal-up" style={{ position: 'relative' }}>
             <div style={{ aspectRatio: '3/4', overflow: 'hidden' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/team/studio-1.webp" alt="Goodidea Studio" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/team/team-b.webp" alt="Goodidea Studio" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             {/* Accent line */}
             <div style={{

@@ -1,12 +1,61 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from '@/components/ui/Button'
 
 gsap.registerPlugin(ScrollTrigger)
+
+// SVG icons for each service
+const SERVICE_ICONS: Record<string, JSX.Element> = {
+  'Brand Identity': (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
+      <circle cx="11" cy="11" r="4" stroke="currentColor" strokeWidth="1.5"/>
+      <circle cx="11" cy="11" r="9.5" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3"/>
+      <line x1="11" y1="2" x2="11" y2="5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="11" y1="17" x2="11" y2="20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  ),
+  'Brand Strategy': (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
+      <path d="M3 19L11 4l8 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <line x1="6" y1="14" x2="16" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  ),
+  'Social Media Branding': (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
+      <circle cx="5" cy="11" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
+      <circle cx="17" cy="5" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
+      <circle cx="17" cy="17" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
+      <line x1="7.5" y1="9.5" x2="14.5" y2="6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="7.5" y1="12.5" x2="14.5" y2="15.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  ),
+  'Naming & Verbal Identity': (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
+      <path d="M4 16L11 4l7 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <line x1="6.5" y1="12" x2="15.5" y2="12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="11" y1="18" x2="11" y2="21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  ),
+  'Website Design': (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
+      <rect x="2" y="4" width="18" height="14" rx="1" stroke="currentColor" strokeWidth="1.5"/>
+      <line x1="2" y1="8" x2="20" y2="8" stroke="currentColor" strokeWidth="1.5"/>
+      <circle cx="5" cy="6" r="0.75" fill="currentColor"/>
+      <circle cx="8" cy="6" r="0.75" fill="currentColor"/>
+      <circle cx="11" cy="6" r="0.75" fill="currentColor"/>
+    </svg>
+  ),
+  'Packaging & Print': (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
+      <path d="M11 2L20 7v8L11 20 2 15V7z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+      <path d="M11 2v18M2 7l9 5 9-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+}
 
 interface Service {
   number: string
@@ -73,6 +122,8 @@ const WORK_TEASERS = [
 
 function ServiceRow({ service, index }: { service: Service; index: number }) {
   const [open, setOpen] = useState(false)
+  const toggle = useCallback(() => setOpen(o => !o), [])
+  const icon = SERVICE_ICONS[service.title]
 
   return (
     <div
@@ -83,8 +134,10 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
       }}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
+      onClick={toggle}
     >
       <div
+        className="service-row-grid"
         style={{
           display: 'grid',
           gridTemplateColumns: '6rem 1fr auto',
@@ -94,19 +147,26 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
           paddingBottom: '2.5rem',
         }}
       >
-        {/* Number */}
-        <span
-          style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontStyle: 'italic',
-            fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-            color: '#E85D26',
-            opacity: 0.7,
-            flexShrink: 0,
-          }}
-        >
-          {service.number}
-        </span>
+        {/* Number + icon */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flexShrink: 0 }}>
+          <span
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontStyle: 'italic',
+              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+              color: '#E85D26',
+              opacity: 0.7,
+            }}
+          >
+            {service.number}
+          </span>
+          <span style={{
+            color: open ? '#E85D26' : 'rgba(17,31,42,0.3)',
+            transition: 'color 0.35s ease',
+          }}>
+            {icon}
+          </span>
+        </div>
 
         {/* Title + description */}
         <div style={{ minWidth: 0 }}>
@@ -115,7 +175,7 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               fontWeight: 900,
               fontStyle: 'italic',
-              fontSize: 'clamp(2.25rem, 5vw, 5rem)',
+              fontSize: 'clamp(1.75rem, 5vw, 5rem)',
               lineHeight: 1.0,
               letterSpacing: '-0.02em',
               color: open ? '#E85D26' : '#111F2A',
@@ -130,7 +190,7 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
           <div
             style={{
               overflow: 'hidden',
-              maxHeight: open ? '6rem' : '0',
+              maxHeight: open ? '8rem' : '0',
               opacity: open ? 1 : 0,
               transition: 'max-height 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.35s ease',
               marginTop: open ? '1rem' : '0',
@@ -164,10 +224,11 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
           </div>
         </div>
 
-        {/* Right: thumbnail or arrow */}
+        {/* Right: thumbnail + arrow */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexShrink: 0 }}>
           {service.image && (
             <div
+              className="service-thumb"
               style={{
                 width: 'clamp(80px, 10vw, 160px)',
                 aspectRatio: '3/2',
@@ -185,18 +246,24 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
               />
             </div>
           )}
+          {/* Animated plus/minus toggle */}
           <span
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontStyle: 'italic',
-              fontSize: '2rem',
-              color: open ? '#E85D26' : 'rgba(17,31,42,0.25)',
-              transition: 'color 0.35s ease, transform 0.35s ease',
-              transform: open ? 'translateX(4px)' : 'translateX(0)',
-              display: 'inline-block',
+              width: '28px',
+              height: '28px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+              transition: 'transform 0.35s ease',
+              transform: open ? 'rotate(45deg)' : 'rotate(0deg)',
+              color: open ? '#E85D26' : 'rgba(17,31,42,0.4)',
             }}
           >
-            →
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
+              <line x1="9" y1="2" x2="9" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              <line x1="2" y1="9" x2="16" y2="9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
           </span>
         </div>
       </div>
@@ -293,6 +360,7 @@ export default function ServicesPage() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
         id="services-hero"
+        className="page-hero-section"
         style={{
           background: 'transparent',
           minHeight: '100dvh',

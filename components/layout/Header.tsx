@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { navLinks } from '@/data/site'
 import AnimatedLogo from '@/components/ui/AnimatedLogo'
 import MobileMenu from './MobileMenu'
+import StartProjectButton from '@/components/ui/StartProjectButton'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -113,35 +114,9 @@ export default function Header() {
                 </Link>
               )
             })}
-            <Link
-              href="/contact"
-              style={{
-                fontFamily: "'Gotham Book', 'Helvetica Neue', sans-serif",
-                fontSize: '0.7rem',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: '#111F2A',
-                border: '1px solid rgba(17,31,42,0.5)',
-                padding: '0.55rem 1.1rem',
-                textDecoration: 'none',
-                transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
-                whiteSpace: 'nowrap',
-              }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLAnchorElement
-                el.style.background = '#E85D26'
-                el.style.borderColor = '#E85D26'
-                el.style.color = '#fff'
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLAnchorElement
-                el.style.background = 'transparent'
-                el.style.borderColor = 'rgba(17,31,42,0.5)'
-                el.style.color = '#111F2A'
-              }}
-            >
+            <StartProjectButton variant="outline">
               Start Project
-            </Link>
+            </StartProjectButton>
           </nav>
 
           {/* Hamburger — hidden on desktop via CSS class */}

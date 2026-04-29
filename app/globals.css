@@ -249,6 +249,47 @@
   }
 }
 
+/* ── About/Studio page mobile ── */
+@media (max-width: 900px) {
+  .story-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .process-row {
+    grid-template-columns: 3rem 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+@media (max-width: 767px) {
+  .values-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  /* Reduce hero section height on mobile for About and Services */
+  .page-hero-section {
+    min-height: auto !important;
+    padding-top: calc(72px + 2.5rem) !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+/* ── Services page mobile ── */
+@media (max-width: 767px) {
+  .service-row-grid {
+    grid-template-columns: 3rem 1fr 2rem !important;
+    gap: 0.75rem !important;
+  }
+  .service-thumb { display: none !important; }
+  .services-works-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .service-hero-stats { display: none !important; }
+}
+
 /* ── Swiper Overrides ── */
 :root {
   --swiper-theme-color: var(--ink);
