@@ -255,9 +255,13 @@
     grid-template-columns: 1fr !important;
     gap: 2.5rem !important;
   }
+  /* Switch process rows to flex column so 3 children stack cleanly */
   .process-row {
-    grid-template-columns: 3rem 1fr !important;
-    gap: 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+    padding: 1.75rem 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 }
 @media (max-width: 767px) {
