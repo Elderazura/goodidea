@@ -4,24 +4,26 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Marquee from '@/components/ui/Marquee'
-import ServicesSection  from './sections/ServicesSection'
-import WorksSection     from './sections/WorksSection'
-import AboutSection     from './sections/AboutSection'
-import PricingSection   from './sections/PricingSection'
-import InsightsSection  from './sections/InsightsSection'
-import CTASection       from './sections/CTASection'
+import ServicesSection       from './sections/ServicesSection'
+import WorksSection          from './sections/WorksSection'
+import FeaturedScrollSection from './sections/FeaturedScrollSection'
+import AboutSection          from './sections/AboutSection'
+import PricingSection        from './sections/PricingSection'
+import InsightsSection       from './sections/InsightsSection'
+import CTASection            from './sections/CTASection'
 
 gsap.registerPlugin(ScrollTrigger)
 
 /** Background colour keyed to each section — drives the smooth scroll-transition effect */
 const SECTION_COLORS = [
-  { id: 'section-marquee',  bg: '#F8F5F0' },
-  { id: 'section-services', bg: '#111F2A' },
-  { id: 'section-works',    bg: '#F8F5F0' },
-  { id: 'section-about',    bg: '#0D1822' },
-  { id: 'section-pricing',  bg: '#F8F5F0' },
-  { id: 'section-insights', bg: '#F8F5F0' },
-  { id: 'section-cta',      bg: '#111F2A' },
+  { id: 'section-marquee',   bg: '#F8F5F0' },
+  { id: 'section-services',  bg: '#111F2A' },
+  { id: 'section-works',     bg: '#F8F5F0' },
+  { id: 'section-featured',  bg: '#F8F5F0' },
+  { id: 'section-about',     bg: '#0D1822' },
+  { id: 'section-pricing',   bg: '#F8F5F0' },
+  { id: 'section-insights',  bg: '#F8F5F0' },
+  { id: 'section-cta',       bg: '#111F2A' },
 ] as const
 
 export default function HomeBody() {
@@ -122,6 +124,7 @@ export default function HomeBody() {
 
       <ServicesSection />
       <WorksSection />
+      <FeaturedScrollSection />
       <AboutSection />
       <PricingSection />
       <InsightsSection />
